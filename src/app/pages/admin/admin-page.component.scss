@@ -1,0 +1,152 @@
+.nav {
+  background-color: #218bc0;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+    display: flex;
+    margin-left: 10px;
+    span {
+      color: white;
+    }
+  }
+  &__menu {
+    color: white;
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__button {
+    color: white;
+    &:hover {
+      background-color: #3d98c6;
+      box-shadow: inset 0px 0px 40px 40px #3d98c6;
+    }
+  }
+}
+@media only screen and (max-width: 720px) {
+  .layout {
+    position: relative;
+    overflow: hidden;
+    min-width: 100vw;
+  }
+  .sidebar {
+    position: relative;
+    overflow: hidden;
+  }
+}
+.layout {
+  min-height: 100vh;
+}
+.sidebar {
+  background-color: white;
+  span {
+    color: #0f2029;
+    font-weight: bold;
+  }
+  &__card {
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #d4d4d4;
+    .ant-card-meta {
+      display: flex;
+      align-items: center;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    &__title {
+      color: #0f2029;
+      font-weight: bold;
+      margin-bottom: 0px;
+      word-break: break-all;
+      text-wrap: balance;
+    }
+    &__description {
+      color: #0f2029;
+      font-weight: normal;
+      word-break: break-all;
+      text-wrap: balance;
+    }
+  }
+  &__list {
+    padding: 20px;
+    .ant-menu-item {
+      border-radius: 10px;
+      &:hover {
+        background-color: #e9f4f9;
+      }
+      &.ant-menu-item-selected {
+        background-color: #c9e3f0;
+      }
+    }
+  }
+  &__avatar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+}
+
+.content {
+  background-color: #f1f2f2;
+}
+::ng-deep .ant-menu-selected::after {
+  border: none !important;
+}
+.ant-menu-inline .ant-menu-item::after,
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after {
+  border: none !important;
+}
+
+.button__prueba {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  width: 70px;
+  text-align: center;
+  padding: 0;
+}
+.popover {
+  padding: 10px;
+  &__btn {
+    color: #218bc0;
+    border: 1px solid #218bc0;
+    background-color: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    &:hover {
+      background-color: #218bc0;
+      color: white;
+    }
+  }
+  &__card {
+    border: none;
+    ::ng-deep .ant-card-body {
+      padding: 0px;
+    }
+    &__menu {
+        border-right: none !important;
+        .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left{
+          border-right: none !important;
+        }
+    }
+  }
+}

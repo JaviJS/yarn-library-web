@@ -1,0 +1,56 @@
+.container {
+  background-color: #f1f2f2;
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  border-radius: 60px;
+  width: 400px;
+  &__avatar {
+    display: flex;
+    justify-content: center;
+  }
+  &__title {
+    color: #0f2029;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__button {
+    color: #0f2029;
+    background-color: #c9e3f0;
+    border-color: transparent;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__button:hover {
+    background-color: #218bc0;
+    color: white;
+  }
+
+  ::ng-deep .ant-input-affix-wrapper {
+    border-radius: 10px;
+    border: 1px solid #d4d4d4;
+    > .ant-input:not(textarea) {
+      padding: 5px;
+    }
+  }
+
+  &__forgot_password {
+    color: #218bc0;
+    font-weight: bold;
+    text-align: end;
+  }
+
+  &__register_label {
+    margin-top: 25px;
+    text-align: center;
+    color: #0f2029;
+    span {
+      font-weight: bold;
+    }
+  }
+}

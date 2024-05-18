@@ -1,0 +1,51 @@
+<div class="container" nz-flex nzJustify="center" nzAlign="center">
+  <nz-card class="card">
+    <div nz-row>
+      <div nz-col nzSpan="24" class="card__avatar">
+        <nz-avatar
+          [nzShape]="'square'"
+          [nzSize]="150"
+          nzIcon="Logo Keririn"
+          nzSrc="../../../../assets/Logo_Keririn_Sin_Fondo1.png"
+        ></nz-avatar>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <h3 nz-typography class="card__title">Seleccionar perfil</h3>
+      </div>
+    </div>
+    <div nz-row class="card__row">
+      <div nz-col nzSpan="24">
+        <nz-list nzItemLayout="horizontal">
+          @for (rol of rols; track rol) {
+          <nz-list-item (click)="goToSelectedProfile($event, rol)">
+            <nz-list-item-meta
+              nzAvatar="../../../../assets/yoongi4.jpg"
+              [nzDescription]="nameUser"
+            >
+              <nz-list-item-meta-title>
+                <a class="card__rol">{{
+                  rol.name
+                }}</a>
+              </nz-list-item-meta-title>
+            </nz-list-item-meta>
+          </nz-list-item>
+          }
+          <nz-list-item (click)="goToLogin()">
+            <nz-list-item-meta [nzAvatar]="avatarTemplate">
+              <nz-list-item-meta-title>
+                <a class="card__rol"
+                  >Usar otra cuenta</a
+                >
+              </nz-list-item-meta-title>
+            </nz-list-item-meta>
+          </nz-list-item>
+        </nz-list>
+        <ng-template #avatarTemplate>
+          <nz-avatar nzIcon="user"></nz-avatar>
+        </ng-template>
+      </div>
+    </div>
+  </nz-card>
+</div>

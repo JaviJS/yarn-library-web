@@ -1,0 +1,83 @@
+<div class="container" nz-flex nzJustify="center" nzAlign="center">
+  <nz-card class="card">
+    <div nz-row>
+      <div nz-col nzSpan="24" class="card__avatar">
+        <nz-avatar
+          [nzShape]="'square'"
+          [nzSize]="180"
+          nzIcon="Logo Keririn"
+          nzSrc="../../../../assets/Logo_Keririn_Sin_Fondo1.png"
+        ></nz-avatar>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <h1 nz-typography class="card__title">Iniciar Sesión</h1>
+      </div>
+    </div>
+    <form
+      nz-form
+      [formGroup]="validateForm"
+      class="login-form"
+      (ngSubmit)="submitForm()"
+    >
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your username!">
+              <nz-input-group nzPrefixIcon="user">
+                <input
+                  type="text"
+                  nz-input
+                  formControlName="userName"
+                  placeholder="Username"
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your Password!">
+              <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+                <input
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  nz-input
+                  type="password"
+                  formControlName="password"
+                  placeholder="Ingresa tu contraseña"
+                />
+              </nz-input-group>
+              <ng-template #suffixTemplate>
+                <span
+                  nz-icon
+                  [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                  (click)="passwordVisible = !passwordVisible"
+                ></span>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <p class="card__forgot_password">Olvidaste tu contraseña</p>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <button nz-button class="card__button" (click)="goToSelectedProfile()">Iniciar Sesión</button>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <p class="card__register_label">
+          ¿No tienes cuenta? <span>Registrate aquí</span>
+        </p>
+      </div>
+    </div>
+  </nz-card>
+</div>
