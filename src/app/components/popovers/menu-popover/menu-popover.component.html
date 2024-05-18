@@ -6,6 +6,7 @@
   [nzPopoverContent]="contentTemplate"
   nzPopoverPlacement="bottomRight"
   nzPopoverTrigger="click"
+  [class]="icon === 'right' ? 'btn_dark' : 'btn_light'"
 >
   <span nz-icon [nzType]="icon" nzTheme="outline"></span>
 </button>

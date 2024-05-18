@@ -1,3 +1,9 @@
+.btn_dark {
+  color: #0f2029;
+}
+.btn_light {
+  color: white;
+}
 .popover {
   padding: 10px;
   border-radius: 50px;
@@ -27,6 +33,17 @@
     &__item {
       padding: 0px !important;
     }
+    .ant-menu-item {
+      border-radius: 10px;
+      &:hover {
+        background-color: #e9f4f9;
+        color: #0f2029;
+      }
+      &.ant-menu-item-selected {
+        background-color: #c9e3f0;
+        color: #0f2029;
+      }
+    }
   }
   &__profile {
     display: flex;
@@ -50,4 +67,13 @@
 }
 ::ng-deep .ant-popover-inner {
   border-radius: 20px !important;
+}
+::ng-deep .ant-menu-selected::after {
+  border: none !important;
+}
+.ant-menu-inline .ant-menu-item::after,
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after {
+  border: none !important;
 }
