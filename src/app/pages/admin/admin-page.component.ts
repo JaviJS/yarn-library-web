@@ -6,14 +6,14 @@ import { MenuPopoverComponent } from '../../components/popovers/menu-popover/men
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
-  selector: 'app-info-bts',
+  selector: 'admin-page-bts',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule,
     RouterOutlet,
     DemoNgZorroAntdModule,
-    // MenuPopoverComponent,
+    MenuPopoverComponent,
   ],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.scss',

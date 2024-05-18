@@ -123,30 +123,3 @@
   text-align: center;
   padding: 0;
 }
-.popover {
-  padding: 10px;
-  &__btn {
-    color: #218bc0;
-    border: 1px solid #218bc0;
-    background-color: none;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    &:hover {
-      background-color: #218bc0;
-      color: white;
-    }
-  }
-  &__card {
-    border: none;
-    ::ng-deep .ant-card-body {
-      padding: 0px;
-    }
-    &__menu {
-        border-right: none !important;
-        .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left{
-          border-right: none !important;
-        }
-    }
-  }
-}
