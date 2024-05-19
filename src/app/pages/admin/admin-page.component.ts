@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { DemoNgZorroAntdModule } from '../../ng-zorro-antd.module';
 import { MenuPopoverComponent } from '../../components/popovers/menu-popover/menu-popover.component';
+import { UserSidebarComponent } from '../../components/sidebars/user-sidebar/user-sidebar.component';
+import { UserNavbarComponent } from '../../components/navbars/user-navbar/user-navbar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
@@ -14,6 +16,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
     RouterOutlet,
     DemoNgZorroAntdModule,
     MenuPopoverComponent,
+    UserSidebarComponent,
+    UserNavbarComponent
   ],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.scss',
@@ -24,6 +28,32 @@ export class AdminPageComponent {
   sidebarPosition = 60;
   sidebarWidth = '300px';
   hiddenCard = false;
+  options = [
+    {
+      id: 1,
+      name: 'Usuarios',
+      path: '/usuarios',
+      icon: '../../prueba.png'
+    },
+    {
+      id: 2,
+      name: 'Perfiles',
+      path: '/perfiles',
+      icon: '../../prueba.png'
+    },
+    {
+      id: 3,
+      name: 'Instrumentos',
+      path: '/instrumentos',
+      icon: '../../prueba.png'
+    },
+    {
+      id: 4,
+      name: 'Material',
+      path: '/material',
+      icon: '../../prueba.png'
+    }
+  ];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -49,19 +79,7 @@ export class AdminPageComponent {
         }
       });
   }
-  ngOnInit(): void {
-    this.getBandRoute();
-  }
-  getBandRoute() {
-    // let band = this.route.snapshot.paramMap.get('band');
-    // if (band) {
-    //   const findBand = this.bands.find((x) => x.code_name === band);
-    //   console.log({findBand});
-    //   if (findBand) {
-    //     this.routeBand = findBand?.name;
-    //   } else {
-    //     this.router.navigate(['/not-found/']);
-    //   }
-    // }
+  changeCollapsed($event: any){
+    this.isCollapsed = $event;
   }
 }

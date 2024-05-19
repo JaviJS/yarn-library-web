@@ -1,31 +1,13 @@
-@media only screen and (max-width: 720px) {
-  .layout {
-    position: relative;
-    overflow: hidden;
-    min-width: 100vw;
-  }
-  .sidebar {
-    position: relative;
-    overflow: hidden;
-  }
-}
-.layout {
-  min-height: 100vh;
-}
 .sidebar {
-  background-color: white;
-  span {
+  &__span {
     color: #0f2029;
     font-weight: bold;
   }
-  &__card {
-    margin: 20px;
-    border-radius: 10px;
-    border: 1px solid #d4d4d4;
-    .ant-card-meta {
-      display: flex;
-      align-items: center;
-    }
+  &__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     &__info {
       display: flex;
       flex-direction: column;
@@ -43,6 +25,15 @@
       font-weight: normal;
       word-break: break-all;
       text-wrap: balance;
+    }
+  }
+  &__card {
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #d4d4d4;
+    .ant-card-meta {
+      display: flex;
+      align-items: center;
     }
   }
   &__list {
@@ -63,10 +54,6 @@
     justify-content: center;
     padding-top: 30px;
   }
-}
-
-.content {
-  background-color: #f1f2f2;
 }
 ::ng-deep .ant-menu-selected::after {
   border: none !important;

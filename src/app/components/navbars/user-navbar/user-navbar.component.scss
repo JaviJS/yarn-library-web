@@ -1,0 +1,38 @@
+.nav {
+  background-color: #218bc0;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    span {
+      color: white;
+    }
+  }
+  &__menu {
+    color: white;
+  }
+  &__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    &__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    &__button {
+      color: white;
+      &:hover {
+        background-color: #3d98c6;
+        box-shadow: inset 0px 0px 40px 40px #3d98c6;
+      }
+    }
+  }
+}
