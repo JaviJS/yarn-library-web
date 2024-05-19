@@ -4,7 +4,7 @@
       nz-button
       nzType="text"
       nzShape="circle"
-      (click)="changeCollapsed(this.isCollapsed = !this.isCollapsed)"
+      (click)="changeCollapsed((this.isCollapsed = !this.isCollapsed))"
     >
       <span nz-icon nzType="menu" nzTheme="outline"></span>
     </button>
@@ -15,25 +15,8 @@
     ></nz-avatar>
   </div>
   @if (!hiddenCard) {
-    <div class="nav__menu">
-      <div class="nav__profile">
-        <div class="nav__profile__img">
-          <nz-avatar
-            [nzSize]="45"
-            nzIcon="user"
-            nzSrc="../../../assets/yoongi4.jpg"
-          ></nz-avatar>
-        </div>
-        <div class="nav__profile__info">
-          <div class="nav__profile__info__title">
-            <strong>Javiera Jara Salas</strong>
-          </div>
-          <div class="nav__profile__info__subtitle">Tejedora</div>
-        </div>
-        <div>
-          <menu-popover icon="down"></menu-popover>
-        </div>
-      </div>
-    </div>
+    <profile-card [card]="card" typeColor="light">
+      <menu-popover typeColor="light" [icon]="card.icon"></menu-popover>
+    </profile-card>
   }
 </nav>

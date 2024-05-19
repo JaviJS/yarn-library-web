@@ -6,33 +6,16 @@
       <nz-avatar [nzSize]="50" nzSrc="../../../assets/yoongi4.jpg"></nz-avatar>
     </ng-template>
     <ng-template #titleTemplate>
-      <div class="sidebar__profile">
-        <div class="sidebar__profile__img">
-          <nz-avatar
-            [nzSize]="45"
-            nzIcon="user"
-            nzSrc="../../../assets/yoongi4.jpg"
-          ></nz-avatar>
-        </div>
-        <div class="sidebar__profile__info">
-          <div class="sidebar__profile__title">
-            <strong>Javiera Jara Salas</strong>
-          </div>
-          <div class="sidebar__profile__description">
-            {{ 'javivimi14@gmail.com' }}
-          </div>
-        </div>
-        @if (hiddenCard) {
-          <div>
-            <menu-popover icon="right"></menu-popover>
-          </div>
+      <profile-card [card]="card" typeColor="dark">
+        @if (!hiddenBtn) {
+          <menu-popover typeColor="dark" [icon]="card.icon"></menu-popover>
         }
-      </div>
+      </profile-card>
     </ng-template>
   </nz-card>
 } @else {
   <div class="sidebar__avatar">
-    <nz-avatar [nzSize]="40" nzSrc="../../../assets/yoongi4.jpg"></nz-avatar>
+    <nz-avatar [nzSize]="40" [nzSrc]="card.avatar"></nz-avatar>
   </div>
 }
 <ul

@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card_img">
+    <nz-avatar [nzSize]="45" [nzSrc]="card.avatar"></nz-avatar>
+  </div>
+  <div class="card__info">
+    <div
+      [class]="
+        typeColor === 'dark'
+          ? 'card__title card__text_dark'
+          : 'card__title card__text_light'
+      "
+    >
+      <strong>{{ card.title }}</strong>
+    </div>
+    <div
+      [class]="
+        typeColor === 'dark'
+          ? 'card__description card__text_dark'
+          : 'card__description card__text_light'
+      "
+    >
+      {{ card.description }}
+    </div>
+  </div>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>

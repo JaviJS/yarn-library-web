@@ -2,11 +2,17 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MenuPopoverComponent } from '../../../components/popovers/menu-popover/menu-popover.component';
+import { ProfileCardComponent } from '../../../components/cards/profile-card/profile-card.component';
+import { MenuPopoverComponent } from '../../popovers/menu-popover/menu-popover.component';
 @Component({
   selector: 'user-sidebar',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule, MenuPopoverComponent],
+  imports: [
+    CommonModule,
+    DemoNgZorroAntdModule,
+    ProfileCardComponent,
+    MenuPopoverComponent,
+  ],
   templateUrl: './user-sidebar.component.html',
   styleUrl: './user-sidebar.component.scss',
 })
@@ -15,7 +21,31 @@ export class UserSidebarComponent {
   @Input({ required: true }) isCollapsed: boolean = false;
   sidebarPosition = 60;
   sidebarWidth = '300px';
-  hiddenCard = false;
+  hiddenBtn = true;
+  user = {
+    name: 'Javiera Jara Salas',
+    email: 'javivimi14@gmail.com',
+    imageUrl:
+      'https://i.pinimg.com/736x/68/c4/ae/68c4aefdec873e363f456f1da413c352.jpg',
+    profile: [
+      {
+        id: 1,
+        code: 'admin',
+        name: 'Administrador',
+      },
+      {
+        id: 2,
+        code: 'weaver',
+        name: 'Tejedor',
+      },
+    ],
+  };
+  card = {
+    title: this.user.name,
+    description: this.user.email,
+    avatar: this.user.imageUrl,
+    icon: 'right'
+  };
   constructor(private breakPointObserver: BreakpointObserver) {
     this.breakPointObserver
       .observe([
@@ -29,11 +59,11 @@ export class UserSidebarComponent {
         if (result.breakpoints[Breakpoints.XSmall]) {
           this.sidebarPosition = 0;
           this.sidebarWidth = '100%';
-          this.hiddenCard = true;
+          this.hiddenBtn = false;
         } else {
           this.sidebarPosition = 80;
           this.sidebarWidth = '350px';
-          this.hiddenCard = false;
+          this.hiddenBtn = true;
         }
       });
   }

@@ -16,23 +16,4 @@
   &__menu {
     color: white;
   }
-  &__profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-
-    &__info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    &__button {
-      color: white;
-      &:hover {
-        background-color: #3d98c6;
-        box-shadow: inset 0px 0px 40px 40px #3d98c6;
-      }
-    }
-  }
 }

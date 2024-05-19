@@ -6,7 +6,7 @@
   [nzPopoverContent]="contentTemplate"
   nzPopoverPlacement="bottomRight"
   nzPopoverTrigger="click"
-  [class]="icon === 'right' ? 'btn_dark' : 'btn_light'"
+  [class]="typeColor === 'dark' ? 'btn_dark' : 'btn_light'"
 >
   <span nz-icon [nzType]="icon" nzTheme="outline"></span>
 </button>
@@ -15,23 +15,7 @@
   <div class="popover">
     <div nz-row>
       <div nz-col nzSpan="24">
-        <div class="popover__profile">
-          <div class="popover__profile__img">
-            <nz-avatar
-              [nzSize]="45"
-              nzIcon="user"
-              nzSrc="../../../assets/yoongi4.jpg"
-            ></nz-avatar>
-          </div>
-          <div class="popover__profile__info">
-            <div class="popover__profile__info__title">
-              <strong>Javiera Jara Salas</strong>
-            </div>
-            <div class="popover__profile__info__subtitle">
-              {{ 'javivimi14@gmail.com' }}
-            </div>
-          </div>
-        </div>
+        <profile-card [card]="card" typeColor="dark"></profile-card>
       </div>
     </div>
     <div nz-row>

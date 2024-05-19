@@ -1,8 +1,16 @@
 .btn_dark {
   color: #0f2029;
+  &:hover {
+    background-color: #e9f4f9;
+    box-shadow: inset 0px 0px 40px 40px #e9f4f9;
+  }
 }
 .btn_light {
   color: white;
+  &:hover {
+    background-color: #3d98c6;
+    box-shadow: inset 0px 0px 40px 40px #3d98c6;
+  }
 }
 .popover {
   padding: 10px;
@@ -42,25 +50,6 @@
       &.ant-menu-item-selected {
         background-color: #c9e3f0;
         color: #0f2029;
-      }
-    }
-  }
-  &__profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-
-    &__info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    &__button {
-      color: white;
-      &:hover {
-        background-color: #3d98c6;
-        box-shadow: inset 0px 0px 40px 40px #3d98c6;
       }
     }
   }
