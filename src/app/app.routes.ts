@@ -14,15 +14,16 @@ export const routes: Routes = [
         loadChildren: () =>
             import('./pages/admin/admin-page.routes').then((m) => m.adminRoutes),
     },
-    // {
-    //     path: '',
-    //     component: PrincipalComponent,
-    // },
-    // {
-    //     path: ':band',
-    //     loadChildren: () =>
-    //         import('./pages/dashboard-band/dashboard-band.routes').then((m) => m.dashboardBandRoutes),
-    // },
+    {
+        path: 'configuracion',
+        loadChildren: () =>
+            import('./pages/config/config.routes').then((m) => m.configRoutes),
+    },
+    {
+        path: 'perfil',
+        loadChildren: () =>
+            import('./pages/profile/profile.routes').then((m) => m.profileRoutes),
+    },
     {
         path: '**',
         component: NotFoundComponent
