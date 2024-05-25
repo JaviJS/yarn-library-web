@@ -1,0 +1,149 @@
+@import '../../../../styles/scss/variables.scss';
+
+.date_input {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid $border-color;
+  ::ng-deep input {
+    padding: 5px !important;
+  }
+}
+
+::ng-deep {
+  .ant-picker-body date-table .ant-picker-content {
+    th {
+      font-weight: bold;
+      color: $font-color;
+      text-transform: lowercase;
+    }
+    th::first-letter {
+      text-transform: uppercase;
+    }
+    td {
+      &:hover {
+        color: $font-color;
+        font-weight: bold;
+      }
+      .ant-picker-cell-inner {
+        background: none;
+        border-radius: 50%;
+      }
+      .ant-picker-cell-inner:hover {
+        background-color: $background-light !important;
+        color: $font-color;
+      }
+    }
+    .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+      font-weight: bold;
+      border-radius: 50%;
+      background-color: $primary-color;
+    }
+    ::ng-deep
+      .ant-picker-cell-in-view.ant-picker-cell-today
+      .ant-picker-cell-inner::before {
+      border: 1px solid $primary-color;
+      border-radius: 50%;
+      content: '';
+    }
+    .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(
+        .ant-picker-cell-range-start
+      ):not(.ant-picker-cell-range-end):not(
+        .ant-picker-cell-range-hover-start
+      ):not(.ant-picker-cell-range-hover-end)
+      .ant-picker-cell-inner {
+      background: $background-light;
+    }
+  }
+  ::ng-deep month-table .ant-picker-content {
+    td {
+      color: $font-color;
+      &:hover {
+        color: $font-color;
+        font-weight: bold;
+      }
+      .ant-picker-cell-inner {
+        background: none;
+      }
+      .ant-picker-cell-inner:hover {
+        background-color: $background-light !important;
+        color: $font-color;
+      }
+    }
+    .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+      font-weight: bold;
+      background-color: $primary-color;
+    }
+
+    .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(
+        .ant-picker-cell-range-start
+      ):not(.ant-picker-cell-range-end):not(
+        .ant-picker-cell-range-hover-start
+      ):not(.ant-picker-cell-range-hover-end)
+      .ant-picker-cell-inner {
+      background: $background-light;
+    }
+  }
+  ::ng-deep .ant-picker-body year-table .ant-picker-content {
+    td {
+      color: $font-color;
+      &:hover {
+        color: $font-color;
+        font-weight: bold;
+      }
+      .ant-picker-cell-inner {
+        background: none;
+      }
+      .ant-picker-cell-inner:hover {
+        background-color: $background-light !important;
+        color: $font-color;
+      }
+    }
+    .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+      font-weight: bold;
+      background-color: $primary-color;
+    }
+
+    .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(
+        .ant-picker-cell-range-start
+      ):not(.ant-picker-cell-range-end):not(
+        .ant-picker-cell-range-hover-start
+      ):not(.ant-picker-cell-range-hover-end)
+      .ant-picker-cell-inner {
+      background: $background-light;
+    }
+  }
+  ::ng-deep .ant-picker-header-view {
+    padding: 10px;
+    color: $font-color !important;
+    .ant-picker-header-month-btn,
+    .ant-picker-header-year-btn,
+    .ant-picker-header-decade-btn {
+      border-radius: 10px;
+      color: $font-color !important;
+      padding: 0px 10px 0px 10px;
+      &:hover {
+        background-color: $background-light;
+        font-weight: bold;
+      }
+    }
+  }
+  ::ng-deep .ant-picker-today-btn {
+    color: $font-color;
+    background-color: none;
+    background: none;
+    font-weight: bold;
+    padding: 2px 10px 2px 10px;
+    border-radius: 10px;
+    &:hover {
+      color: $font-color;
+      background-color: $background-light;
+    }
+  }
+}

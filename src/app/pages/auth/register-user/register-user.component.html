@@ -4,7 +4,7 @@
       <div nz-col nzSpan="24" class="card__avatar">
         <nz-avatar
           [nzShape]="'square'"
-          [nzSize]="180"
+          [nzSize]="120"
           nzIcon="Logo Keririn"
           nzSrc="../../../../assets/Logo_Keririn_Sin_Fondo1.png"
         ></nz-avatar>
@@ -12,19 +12,54 @@
     </div>
     <div nz-row>
       <div nz-col nzSpan="24">
-        <h1 nz-typography class="card__title">Iniciar Sesión</h1>
+        <h1 nz-typography class="card__title">Registrarse</h1>
       </div>
     </div>
     <form
       nz-form
       [formGroup]="validateForm"
-      class="login-form"
+      class="register-form"
       (ngSubmit)="submitForm()"
     >
       <div nz-row>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Porfavor, ingresa tu nombre!">
+              <nz-input-group nzPrefixIcon="user">
+                <input
+                  type="text"
+                  nz-input
+                  formControlName="userName"
+                  placeholder="Ingresa tu nombre"
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control
+              nzErrorTip="Porfavor, ingresa tu fecha de nacimiento!"
+            >
+              <!-- <nz-date-picker
+              nzInline 
+                class="card__date_input"
+                nzValue="large"
+                formControlName="birthdayDate"
+                (ngModelChange)="onChange($event)"
+                nzPlaceHolder="Seleccionar fecha de nacimiento"
+              ></nz-date-picker> -->
+              <custom-datepicker></custom-datepicker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
         <div nz-col nzSpan="24">
           <nz-form-item>
-            <nz-form-control nzErrorTip="Porfavor, ingresa tu correo electrónico!">
+            <nz-form-control
+              nzErrorTip="Porfavor, ingresa tu correo electrónico!"
+            >
               <nz-input-group nzPrefixIcon="user">
                 <input
                   type="text"
@@ -64,19 +99,9 @@
     </form>
     <div nz-row>
       <div nz-col nzSpan="24">
-        <p class="card__forgot_password">Olvidaste tu contraseña</p>
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="24">
-        <button nz-button class="card__button" (click)="goToSelectedProfile()">Iniciar Sesión</button>
-      </div>
-    </div>
-    <div nz-row>
-      <div nz-col nzSpan="24">
-        <p class="card__register_label">
-          ¿No tienes cuenta? <span>Registrate aquí</span>
-        </p>
+        <button nz-button class="card__button" (click)="goToLogin()">
+          Registarse
+        </button>
       </div>
     </div>
   </nz-card>
