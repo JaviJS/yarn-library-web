@@ -146,6 +146,9 @@
       background-color: $background-light;
     }
   }
+  .ant-picker-suffix {
+    color: rgba(0, 0, 0, .85);
+  }
 }
 ::ng-deep .ant-form-item-label {
   text-align: left !important;

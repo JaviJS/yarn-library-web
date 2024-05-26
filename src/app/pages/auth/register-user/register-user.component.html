@@ -23,31 +23,25 @@
     >
       <div nz-row>
         <div nz-col nzSpan="12">
-          <validate-input formControlName="nameUser" id="name" [formControl]="validateForm.controls['nameUser']" errorTip="Porfavor, ingresa tu nombre!" icon="user" placeholder="Ingresa tu nombre" label="Nombre"></validate-input>
-          <!-- <nz-form-item>
-            <nz-form-control nzErrorTip="Porfavor, ingresa tu nombre!">
-              <nz-input-group nzPrefixIcon="user">
-                <input
-                  type="text"
-                  nz-input
-                  formControlName="userName"
-                  placeholder="Ingresa tu nombre"
-                />
-              </nz-input-group>
-            </nz-form-control>mail
-          </nz-form-item> -->
+          <validate-input
+            formControlName="nameUser"
+            id="name"
+            [formControl]="validateForm.controls['nameUser']"
+            errorTip="Porfavor, ingresa tu nombre!"
+            icon="user"
+            placeholder="Ingresa tu nombre"
+            label="Nombre"
+          ></validate-input>
         </div>
         <div nz-col nzSpan="12">
-          
-              <!-- <nz-date-picker
-              nzInline 
-                class="card__date_input"
-                nzValue="large"
-                formControlName="birthdayDate"
-                (ngModelChange)="onChange($event)"
-                nzPlaceHolder="Seleccionar fecha de nacimiento"
-              ></nz-date-picker> -->
-              <custom-datepicker id="birthdayDate" [formControl]="validateForm.controls['birthdayDate']" formControlName="birthdayDate" placeholder="Seleccionar fecha de nacimiento" errorTip="Porfavor, ingresa tu fecha de nacimiento!" label="Fecha de nacimiento"></custom-datepicker>
+          <custom-datepicker
+            id="birthdayDate"
+            [formControl]="validateForm.controls['birthdayDate']"
+            formControlName="birthdayDate"
+            placeholder="Seleccionar fecha de nacimiento"
+            errorTip="Porfavor, ingresa tu fecha de nacimiento!"
+            label="Fecha de nacimiento"
+          ></custom-datepicker>
         </div>
       </div>
       <div nz-row>

@@ -6,14 +6,21 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
   FormControl,
-  FormsModule
+  FormsModule,
 } from '@angular/forms';
+import { differenceInCalendarDays } from 'date-fns';
+
 @Component({
   selector: 'custom-datepicker',
   templateUrl: './custom-datepicker.component.html',
   styleUrl: './custom-datepicker.component.scss',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    DemoNgZorroAntdModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -29,6 +36,7 @@ export class CustomDatepickerComponent implements ControlValueAccessor {
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
   date: Date = new Date();
+  today = new Date();
 
   constructor() {}
 
@@ -37,6 +45,10 @@ export class CustomDatepickerComponent implements ControlValueAccessor {
       return '';
     }
     return !this.formControl?.valid ? 'error' : 'success';
+  }
+
+  disabledDate(date: Date): boolean {
+    return differenceInCalendarDays(date, this.today) > 0;
   }
 
   // Métodos requeridos por ControlValueAccessor

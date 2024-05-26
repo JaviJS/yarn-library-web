@@ -36,7 +36,6 @@ export class ValidateInputComponent implements ControlValueAccessor {
     if (!this.formControl?.touched) {
       return '';
     }
-    console.log(this.formControl.valid );
     return !this.formControl?.valid ? 'error' : 'success';
   }
 

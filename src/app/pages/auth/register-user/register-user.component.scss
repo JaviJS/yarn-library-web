@@ -30,15 +30,6 @@
     background-color: #218bc0;
     color: white;
   }
-
-  ::ng-deep .ant-input-affix-wrapper {
-    border-radius: 10px;
-    border: 1px solid #d4d4d4;
-    > .ant-input:not(textarea) {
-      padding: 5px;
-    }
-  }
-
   ::ng-deep .ant-select-selector {
     border-radius: 10px;
     border: 1px solid #d4d4d4;
