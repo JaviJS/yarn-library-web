@@ -1,0 +1,14 @@
+<nz-form-item>
+  <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="name" class="text-left" [nzRequired]="true" [nzNoColon]="true" nzFor="name">Name</nz-form-label>
+  <nz-form-control nzErrorTip="errorTip">
+    <nz-input-group [nzPrefixIcon]="icon" >
+      <input
+        type="text"
+        nz-input
+        [placeholder]="placeholder"
+        [value]="value"
+        (input)="onInputChange($event)"
+      />
+    </nz-input-group>
+  </nz-form-control>
+</nz-form-item>

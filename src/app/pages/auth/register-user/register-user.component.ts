@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDatepickerComponent } from '../../../components/inputs/datepickers/custom-datepicker/custom-datepicker.component';
+import { ValidateInputComponent } from '../../../components/inputs/inputs/validate-input/validate-input.component';
 import {
   FormControl,
   FormGroup,
@@ -24,13 +25,17 @@ import {
     DemoNgZorroAntdModule,
     FormsModule,
     ReactiveFormsModule,
-    CustomDatepickerComponent
+    CustomDatepickerComponent,
+    ValidateInputComponent
   ]
 })
 export class RegisterUserComponent {
   passwordVisible = false;
   password?: string;
+  listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
+  selectedValue = '';
   validateForm = this.fb.group({
+    nameUser: ['', [Validators.required]],
     userName: ['', [Validators.required]],
     password: ['', [Validators.required]],
     birthdayDate: [null, [Validators.required]],
@@ -53,7 +58,8 @@ export class RegisterUserComponent {
     }
   }
   goToLogin() {
-    this.router.navigate(['/auth/login']);
+    // this.router.navigate(['/auth/login']);
+    console.log(this.validateForm.value);
   }
 
   date = null;

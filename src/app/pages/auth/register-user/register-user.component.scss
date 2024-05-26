@@ -39,90 +39,11 @@
     }
   }
 
-  &__date_input {
-    width: 100%;
+  ::ng-deep .ant-select-selector {
     border-radius: 10px;
     border: 1px solid #d4d4d4;
-    ::ng-deep .ant-picker-input {
-      padding: 5px !important;
-    }
-    ::ng-deep .ant-picker-body date-table .ant-picker-content {
-      th {
-        font-weight: bold;
-        color: #0f2029;
-        text-transform: lowercase;
-      }
-      th::first-letter {
-        text-transform: uppercase;
-      }
-      td {
-        &:hover {
-          color: #0f2029;
-          font-weight: bold;
-        }
-        .ant-picker-cell-inner {
-          border-radius: 50%;
-        }
-        .ant-picker-cell-inner:hover {
-          background-color: #e9f4f9 !important;
-          color: #0f2029;
-        }
-      }
-      .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
-      .ant-picker-cell-in-view.ant-picker-cell-range-start
-        .ant-picker-cell-inner,
-      .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
-        font-weight: bold;
-        border-radius: 50%;
-        background-color: #218bc0;
-      }
-      .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
-      .ant-picker-cell-in-view.ant-picker-cell-range-start
-        .ant-picker-cell-inner,
-      .ant-picker-cell-in-view.ant-picker-cell-selected
-        .ant-picker-cell-inner:hover {
-        background-color: #218bc0;
-      }
-    }
-
-    ::ng-deep
-      .ant-picker-cell-in-view.ant-picker-cell-today
-      .ant-picker-cell-inner::before {
-      border: 1px solid #218bc0;
-      border-radius: 50%;
-      content: '';
-    }
-  }
-  ::ng-deep .ant-picker-header-view {
-    padding: 10px;
-    .ant-picker-header-month-btn {
-      border-radius: 10px;
-      color: #0f2029;
-      padding: 0px 10px 0px 10px;
-      &:hover {
-        background-color: #c9e3f0;
-        font-weight: bold;
-      }
-    }
-    .ant-picker-header-year-btn {
-      border-radius: 10px;
-      color: #0f2029;
-      padding: 0px 10px 0px 10px;
-      &:hover {
-        background-color: #c9e3f0;
-        font-weight: bold;
-      }
-    }
-  }
-  ::ng-deep .ant-picker-today-btn {
-    color: #0f2029;
-    background-color: #c9e3f0;
-    font-weight: bold;
-    padding: 2px 10px 2px 10px;
-    border-radius: 10px;
-    &:hover {
-      color: white;
-      background-color: #218bc0;
-    }
+    // > .ant-input:not(textarea) {
+    //   padding: 5px;
+    // }
   }
 }

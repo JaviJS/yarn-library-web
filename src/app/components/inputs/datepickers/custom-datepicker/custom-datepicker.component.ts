@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { ActivatedRoute, Router } from '@angular/router';
 import { DemoNgZorroAntdModule } from '../../../../ng-zorro-antd.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -18,8 +16,6 @@ import {
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
-    RouterOutlet,
     DemoNgZorroAntdModule,
     FormsModule,
     ReactiveFormsModule,
