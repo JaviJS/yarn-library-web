@@ -57,7 +57,17 @@
             label="Correo electrónico"
           ></validate-input>
         </div>
-        <div nz-col nzSpan="12"></div>
+        <div nz-col nzSpan="12">
+          <validate-select
+            formControlName="gender"
+            id="gender"
+            [formControl]="validateForm.controls['gender']"
+            errorTip="Porfavor, ingresa tu género!"
+            placeholder="Ingresa tu género"
+            label="Género"
+            [items]="listGenders"
+          ></validate-select>
+        </div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="12">

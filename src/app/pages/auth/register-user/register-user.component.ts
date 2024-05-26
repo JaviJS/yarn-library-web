@@ -6,6 +6,7 @@ import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDatepickerComponent } from '../../../components/inputs/datepickers/custom-datepicker/custom-datepicker.component';
 import { ValidateInputComponent } from '../../../components/inputs/inputs/validate-input/validate-input.component';
+import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
 import {
   NonNullableFormBuilder,
@@ -26,12 +27,12 @@ import {
     ReactiveFormsModule,
     CustomDatepickerComponent,
     ValidateInputComponent,
-    PasswordFormInputComponent
+    PasswordFormInputComponent,
+    ValidateSelectComponent
   ]
 })
 export class RegisterUserComponent {
   listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
-  selectedValue = '';
   validateForm = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],

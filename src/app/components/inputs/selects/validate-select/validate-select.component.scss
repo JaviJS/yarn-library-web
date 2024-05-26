@@ -1,0 +1,17 @@
+@import '../../../../styles/scss/variables.scss';
+::ng-deep {
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: auto;
+    padding: 5px 16px 5px 16px !important;
+    border-radius: 10px;
+    border: 1px solid #d4d4d4;
+  }
+  .ant-select-selection-search {
+    display: flex;
+    align-items: center;
+  }
+  .ant-select-selection-search-input {
+    padding: 5px !important;
+    height: 100%;
+  }
+}

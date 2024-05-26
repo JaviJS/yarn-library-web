@@ -1,0 +1,30 @@
+<nz-form-item>
+  <nz-form-label
+    [nzSm]="24"
+    [nzXs]="24"
+    [nzRequired]="true"
+    [nzNoColon]="true"
+    [nzFor]="id"
+    >{{ label }}</nz-form-label
+  >
+  <nz-form-control
+    [nzErrorTip]="errorTip"
+    [nzValidateStatus]="isValid()"
+    nzHasFeedback
+  >
+    <nz-select
+      nzShowSearch
+      nzAllowClear
+      [id]="id"
+      [(ngModel)]="value"
+      (ngModelChange)="onInputChange($event)"
+      [nzPlaceHolder]="placeholder"
+    >
+      <nz-option
+        *ngFor="let item of items"
+        [nzLabel]="item"
+        [nzValue]="item"
+      ></nz-option>
+    </nz-select>
+  </nz-form-control>
+</nz-form-item>
