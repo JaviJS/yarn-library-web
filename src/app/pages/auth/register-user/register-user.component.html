@@ -24,9 +24,9 @@
       <div nz-row>
         <div nz-col nzSpan="12">
           <validate-input
-            formControlName="nameUser"
+            formControlName="name"
             id="name"
-            [formControl]="validateForm.controls['nameUser']"
+            [formControl]="validateForm.controls['name']"
             errorTip="Porfavor, ingresa tu nombre!"
             icon="user"
             placeholder="Ingresa tu nombre"
@@ -41,32 +41,49 @@
             placeholder="Seleccionar fecha de nacimiento"
             errorTip="Porfavor, ingresa tu fecha de nacimiento!"
             label="Fecha de nacimiento"
+            [isDisabledDate]="true"
           ></custom-datepicker>
         </div>
       </div>
       <div nz-row>
-        <div nz-col nzSpan="24">
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Porfavor, Ingresa tu contraseña!">
-              <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
-                <input
-                  [type]="passwordVisible ? 'text' : 'password'"
-                  nz-input
-                  type="password"
-                  formControlName="password"
-                  placeholder="Ingresa tu contraseña"
-                />
-              </nz-input-group>
-              <ng-template #suffixTemplate>
-                <span
-                  nz-icon
-                  [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
-                  (click)="passwordVisible = !passwordVisible"
-                ></span>
-              </ng-template>
-            </nz-form-control>
-          </nz-form-item>
+        <div nz-col nzSpan="12">
+          <validate-input
+            formControlName="email"
+            id="email"
+            [formControl]="validateForm.controls['email']"
+            errorTip="Porfavor, ingresa tu correo electrónico!"
+            icon="mail"
+            placeholder="Ingresa tu correo electrónico"
+            label="Correo electrónico"
+          ></validate-input>
         </div>
+        <div nz-col nzSpan="12"></div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="12">
+          <password-form-input
+            formControlName="password"
+            id="password"
+            [formControl]="validateForm.controls['password']"
+            errorTip="Porfavor, ingresa tu contraseña!"
+            placeholder="Ingresa tu contraseña"
+            label="Contraseña"
+          ></password-form-input>
+        </div>
+        <div nz-col nzSpan="12"></div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="12">
+          <password-form-input
+            formControlName="repeatPassword"
+            id="repeatPassword"
+            [formControl]="validateForm.controls['repeatPassword']"
+            errorTip="Porfavor, ingresa nuevamente tu contraseña!"
+            placeholder="Ingresa nuevamente contraseña"
+            label="Repetir contraseña"
+          ></password-form-input>
+        </div>
+        <div nz-col nzSpan="12"></div>
       </div>
     </form>
     <div nz-row>

@@ -6,6 +6,7 @@ import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDatepickerComponent } from '../../../components/inputs/datepickers/custom-datepicker/custom-datepicker.component';
 import { ValidateInputComponent } from '../../../components/inputs/inputs/validate-input/validate-input.component';
+import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
 import {
   NonNullableFormBuilder,
   Validators,
@@ -24,19 +25,21 @@ import {
     FormsModule,
     ReactiveFormsModule,
     CustomDatepickerComponent,
-    ValidateInputComponent
+    ValidateInputComponent,
+    PasswordFormInputComponent
   ]
 })
 export class RegisterUserComponent {
-  passwordVisible = false;
-  password?: string;
   listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
   selectedValue = '';
   validateForm = this.fb.group({
-    nameUser: ['', [Validators.required]],
-    userName: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required]],
     password: ['', [Validators.required]],
+    repeatPassword: ['', [Validators.required]],
     birthdayDate: [null, [Validators.required]],
+    gender: ['', [Validators.required]],
+    phoneNumber: ['', [Validators.required]],
   });
   constructor(
     private fb: NonNullableFormBuilder,
@@ -59,9 +62,6 @@ export class RegisterUserComponent {
     // this.router.navigate(['/auth/login']);
     console.log(this.validateForm.value);
   }
-
-  date = null;
-  isEnglish = false;
 
   onChange(result: Date): void {
     console.log('onChange: ', result);

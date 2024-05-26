@@ -20,7 +20,7 @@
       nzFormat="dd-MM-yyyy"
       (ngModelChange)="onInputChange($event)"
       [nzPlaceHolder]="placeholder"
-      [nzDisabledDate]="disabledDate"
+      [nzDisabledDate]="isDisabledDate ? disabledDate : undefined"
     ></nz-date-picker>
   </nz-form-control>
 </nz-form-item>

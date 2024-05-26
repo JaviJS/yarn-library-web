@@ -6,38 +6,34 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
   FormControl,
-  FormsModule,
 } from '@angular/forms';
-import { differenceInCalendarDays } from 'date-fns';
 
 @Component({
-  selector: 'custom-datepicker',
-  templateUrl: './custom-datepicker.component.html',
-  styleUrl: './custom-datepicker.component.scss',
+  selector: 'password-form-input',
+  templateUrl: './password-form-input.component.html',
+  styleUrl: './password-form-input.component.scss',
   standalone: true,
   imports: [
     CommonModule,
     DemoNgZorroAntdModule,
-    ReactiveFormsModule,
-    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CustomDatepickerComponent),
+      useExisting: forwardRef(() => PasswordFormInputComponent),
       multi: true,
     },
   ],
 })
-export class CustomDatepickerComponent implements ControlValueAccessor {
+export class PasswordFormInputComponent implements ControlValueAccessor {
   @Input({ required: true }) id: string = '';
   @Input({ required: true }) errorTip: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
-  @Input({ required: true }) isDisabledDate: boolean = true;
-  date: Date = new Date();
-  today = new Date();
+  passwordVisible: boolean = false;
+  value: string = '';
 
   constructor() {}
 
@@ -48,18 +44,12 @@ export class CustomDatepickerComponent implements ControlValueAccessor {
     return !this.formControl?.valid ? 'error' : 'success';
   }
 
-  disabledDate = (current: Date): boolean => {
-    return differenceInCalendarDays(current, this.today) > 0;
-  };
-
   // Métodos requeridos por ControlValueAccessor
-  onChange: any = (result: Date) => {
-    console.log('onChange: ', result);
-  };
+  onChange: any = () => {};
   onTouched: any = () => {};
 
   writeValue(value: any): void {
-    this.date = value;
+    this.value = value;
   }
 
   registerOnChange(fn: any): void {
@@ -74,9 +64,10 @@ export class CustomDatepickerComponent implements ControlValueAccessor {
     // Lógica para establecer el estado deshabilitado si es necesario
   }
 
-  onInputChange(date: Date) {
-    this.date = date;
-    this.onChange(this.date);
+  onInputChange(event: Event) {
+    const newValue = (event.target as HTMLInputElement).value;
+    this.value = newValue;
+    this.onChange(newValue);
     this.onTouched();
   }
 }
