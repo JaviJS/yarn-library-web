@@ -1,14 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { DemoNgZorroAntdModule } from '../../../../ng-zorro-antd.module';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
+import {
+  ReactiveFormsModule,
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  FormControl,
+} from '@angular/forms';
 @Component({
   selector: 'validate-input',
   templateUrl: './validate-input.component.html',
   styleUrl: './validate-input.component.scss',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule],
+  imports: [CommonModule, DemoNgZorroAntdModule, ReactiveFormsModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -18,12 +22,23 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class ValidateInputComponent implements ControlValueAccessor {
+  @Input({ required: true }) id: string = '';
   @Input({ required: true }) errorTip: string = '';
   @Input({ required: true }) icon: string = '';
   @Input({ required: true }) placeholder: string = '';
-
+  @Input({ required: true }) label: string = '';
+  @Input({ required: true }) formControl: FormControl | undefined;
   value: string = '';
+
   constructor() {}
+
+  isValid(): string {
+    if (!this.formControl?.touched) {
+      return '';
+    }
+    console.log(this.formControl.valid );
+    return !this.formControl?.valid ? 'error' : 'success';
+  }
 
   // Métodos requeridos por ControlValueAccessor
   onChange: any = () => {};

@@ -23,7 +23,7 @@
     >
       <div nz-row>
         <div nz-col nzSpan="12">
-          <validate-input formControlName="nameUser" errorTip="Porfavor, ingresa tu nombre!" icon="user" placeholder="Ingresa tu nombre"></validate-input>
+          <validate-input formControlName="nameUser" id="name" [formControl]="validateForm.controls['nameUser']" errorTip="Porfavor, ingresa tu nombre!" icon="user" placeholder="Ingresa tu nombre" label="Nombre"></validate-input>
           <!-- <nz-form-item>
             <nz-form-control nzErrorTip="Porfavor, ingresa tu nombre!">
               <nz-input-group nzPrefixIcon="user">
@@ -38,10 +38,7 @@
           </nz-form-item> -->
         </div>
         <div nz-col nzSpan="12">
-          <nz-form-item>
-            <nz-form-control
-              nzErrorTip="Porfavor, ingresa tu fecha de nacimiento!"
-            >
+          
               <!-- <nz-date-picker
               nzInline 
                 class="card__date_input"
@@ -50,33 +47,8 @@
                 (ngModelChange)="onChange($event)"
                 nzPlaceHolder="Seleccionar fecha de nacimiento"
               ></nz-date-picker> -->
-              <custom-datepicker></custom-datepicker>
-            </nz-form-control>
-          </nz-form-item>
+              <custom-datepicker id="birthdayDate" [formControl]="validateForm.controls['birthdayDate']" formControlName="birthdayDate" placeholder="Seleccionar fecha de nacimiento" errorTip="Porfavor, ingresa tu fecha de nacimiento!" label="Fecha de nacimiento"></custom-datepicker>
         </div>
-      </div>
-      <div nz-row>
-        <div nz-col nzSpan="12">
-          <validate-input errorTip="Porfavor, ingresa tu correo electrónico!" icon="mail" placeholder="Ingresa tu correo electrónico"></validate-input>
-        </div>
-        <!-- <div nz-col nzSpan="12">
-          <nz-form-item>
-            <nz-form-control
-              nzErrorTip="Porfavor, ingresa tu correo electrónico!"
-            >
-              <nz-select
-                nzShowSearch
-                nzAllowClear
-                nzPlaceHolder="Select a person"
-                [(ngModel)]="selectedValue"
-              >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-              </nz-select>
-            </nz-form-control>
-          </nz-form-item>
-        </div> -->
       </div>
       <div nz-row>
         <div nz-col nzSpan="24">

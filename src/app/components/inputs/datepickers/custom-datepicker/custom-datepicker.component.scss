@@ -147,3 +147,8 @@
     }
   }
 }
+::ng-deep .ant-form-item-label {
+  text-align: left !important;
+  font-weight: bold;
+  color: $font-color;
+}

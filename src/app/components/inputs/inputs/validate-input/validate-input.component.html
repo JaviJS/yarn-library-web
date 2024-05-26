@@ -1,8 +1,16 @@
 <nz-form-item>
-  <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="name" class="text-left" [nzRequired]="true" [nzNoColon]="true" nzFor="name">Name</nz-form-label>
-  <nz-form-control nzErrorTip="errorTip">
-    <nz-input-group [nzPrefixIcon]="icon" >
+  <nz-form-label
+    [nzSm]="24"
+    [nzXs]="24"
+    [nzRequired]="true"
+    [nzNoColon]="true"
+    [nzFor]="id"
+    >{{ label }}</nz-form-label
+  >
+  <nz-form-control [nzErrorTip]="errorTip" [nzValidateStatus]="isValid()" nzHasFeedback>
+    <nz-input-group [nzPrefixIcon]="icon">
       <input
+        [id]="id"
         type="text"
         nz-input
         [placeholder]="placeholder"

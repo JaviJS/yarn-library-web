@@ -1,8 +1,25 @@
-<nz-date-picker
-  class="date_input"
-  nzValue="large"
-  [(ngModel)]="date" 
-  nzFormat="dd-MM-yyyy"
-  (ngModelChange)="onChange($event)"
-  nzPlaceHolder="Seleccionar fecha de nacimiento"
-></nz-date-picker>
+<nz-form-item>
+  <nz-form-label
+    [nzSm]="24"
+    [nzXs]="24"
+    [nzRequired]="true"
+    [nzNoColon]="true"
+    [nzFor]="id"
+    >{{ label }}</nz-form-label
+  >
+  <nz-form-control
+    [nzErrorTip]="errorTip"
+    [nzValidateStatus]="isValid()"
+    nzHasFeedback
+  >
+    <nz-date-picker
+      [nzId]="id"
+      class="date_input"
+      nzValue="large"
+      [(ngModel)]="date"
+      nzFormat="dd-MM-yyyy"
+      (ngModelChange)="onInputChange($event)"
+      [nzPlaceHolder]="placeholder"
+    ></nz-date-picker>
+  </nz-form-control>
+</nz-form-item>
