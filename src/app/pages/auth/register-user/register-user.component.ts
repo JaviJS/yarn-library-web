@@ -6,13 +6,10 @@ import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDatepickerComponent } from '../../../components/inputs/datepickers/custom-datepicker/custom-datepicker.component';
 import { ValidateInputComponent } from '../../../components/inputs/inputs/validate-input/validate-input.component';
+import { PhoneInputComponent } from '../../../components/inputs/inputs/phone-input/phone-input.component';
 import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
-import {
-  NonNullableFormBuilder,
-  Validators,
-} from '@angular/forms';
-
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'register-user',
   templateUrl: './register-user.component.html',
@@ -28,8 +25,9 @@ import {
     CustomDatepickerComponent,
     ValidateInputComponent,
     PasswordFormInputComponent,
-    ValidateSelectComponent
-  ]
+    ValidateSelectComponent,
+    PhoneInputComponent,
+  ],
 })
 export class RegisterUserComponent {
   listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
@@ -42,11 +40,13 @@ export class RegisterUserComponent {
     gender: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required]],
   });
+
   constructor(
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);

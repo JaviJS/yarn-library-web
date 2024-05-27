@@ -1,0 +1,60 @@
+<!-- <nz-form-item>
+  <nz-form-label
+    [nzSm]="24"
+    [nzXs]="24"
+    [nzRequired]="true"
+    [nzNoColon]="true"
+    [nzFor]="id"
+    >{{ label }}</nz-form-label
+  >
+  <nz-form-control [nzErrorTip]="errorTip" [nzValidateStatus]="isValid()" nzHasFeedback>
+    <nz-input-group [nzPrefixIcon]="icon">
+      <input
+        [id]="id"
+        type="text"
+        nz-input
+        [placeholder]="placeholder"
+        [value]="value"
+        (input)="onInputChange($event)"
+      />
+    </nz-input-group>
+  </nz-form-control>
+</nz-form-item> -->
+<nz-form-item>
+  <nz-form-label
+    [nzSm]="24"
+    [nzXs]="24"
+    [nzRequired]="true"
+    [nzNoColon]="true"
+    [nzFor]="id"
+    >{{ label }}</nz-form-label
+  >
+  <nz-form-control
+    [nzSm]="14"
+    [nzXs]="24"
+    [nzErrorTip]="errorTip"
+    [nzValidateStatus]="isValid()"
+    nzHasFeedback
+    class="control_phone"
+  >
+    <ngx-intl-tel-input
+      [cssClass]="'intl-tel-input'"
+      [preferredCountries]="preferredCountries"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="true"
+      [searchCountryFlag]="true"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.Chile"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      [separateDialCode]="true"
+      [numberFormat]="PhoneNumberFormat.National"
+      name="phone"
+      [value]="phone"
+      [id]="id"
+      (input)="onInputChange($event)"
+    >
+    </ngx-intl-tel-input>
+  </nz-form-control>
+</nz-form-item>

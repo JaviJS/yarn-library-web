@@ -80,7 +80,17 @@
             label="Contraseña"
           ></password-form-input>
         </div>
-        <div nz-col nzSpan="12"></div>
+        <div nz-col nzSpan="12">
+          <phone-input
+            formControlName="phoneNumber"
+            id="phoneNumber"
+            [formControl]="validateForm.controls['phoneNumber']"
+            errorTip="Porfavor, ingresa tu numero teléfonico!"
+            icon="phoneNumber"
+            placeholder="Ingresa tu numero teléfonico"
+            label="Numero teléfonico"
+          ></phone-input>
+        </div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="12">

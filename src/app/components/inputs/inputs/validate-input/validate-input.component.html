@@ -7,7 +7,11 @@
     [nzFor]="id"
     >{{ label }}</nz-form-label
   >
-  <nz-form-control [nzErrorTip]="errorTip" [nzValidateStatus]="isValid()" nzHasFeedback>
+  <nz-form-control
+    [nzErrorTip]="errorTip"
+    [nzValidateStatus]="isValid()"
+    nzHasFeedback
+  >
     <nz-input-group [nzPrefixIcon]="icon">
       <input
         [id]="id"

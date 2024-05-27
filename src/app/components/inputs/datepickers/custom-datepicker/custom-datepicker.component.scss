@@ -8,8 +8,10 @@
   ::ng-deep input {
     padding: 5px !important;
   }
+  &:hover {
+    border: 1px solid #40a9ff;
+  }
 }
-
 ::ng-deep {
   .ant-picker-body date-table .ant-picker-content {
     th {
@@ -147,7 +149,7 @@
     }
   }
   .ant-picker-suffix {
-    color: rgba(0, 0, 0, .85);
+    color: $icon-color;
   }
 }
 ::ng-deep .ant-form-item-label {
