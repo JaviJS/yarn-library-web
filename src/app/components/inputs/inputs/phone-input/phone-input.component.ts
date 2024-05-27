@@ -8,13 +8,15 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
   FormControl,
+  FormsModule,
 } from '@angular/forms';
+
 @Component({
   selector: 'phone-input',
   templateUrl: './phone-input.component.html',
   styleUrl: './phone-input.component.scss',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule, ReactiveFormsModule,NgxIntlTelInputModule],
+  imports: [CommonModule, DemoNgZorroAntdModule,FormsModule, ReactiveFormsModule,NgxIntlTelInputModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -29,7 +31,7 @@ export class PhoneInputComponent implements ControlValueAccessor {
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
-  phone: string = '';
+  phone: any;
   SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
@@ -40,12 +42,9 @@ export class PhoneInputComponent implements ControlValueAccessor {
     if (!this.formControl?.touched) {
       return '';
     }
-    console.log('entro aqui');
+    console.log(!this.formControl?.valid);
     return !this.formControl?.valid ? 'error' : 'success';
   }
-  changePreferredCountries() {
-		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
-	}
   // Métodos requeridos por ControlValueAccessor
   onChange: any = () => {};
   onTouched: any = () => {};
@@ -67,6 +66,7 @@ export class PhoneInputComponent implements ControlValueAccessor {
   }
 
   onInputChange(event: Event) {
+    console.log(event)
     const newValue = (event.target as HTMLInputElement).value;
     this.phone = newValue;
     this.onChange(newValue);

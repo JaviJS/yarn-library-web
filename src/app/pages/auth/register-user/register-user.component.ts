@@ -10,6 +10,8 @@ import { PhoneInputComponent } from '../../../components/inputs/inputs/phone-inp
 import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input-gg';
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input-gg';
 @Component({
   selector: 'register-user',
   templateUrl: './register-user.component.html',
@@ -27,6 +29,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
     PasswordFormInputComponent,
     ValidateSelectComponent,
     PhoneInputComponent,
+    NgxIntlTelInputModule
   ],
 })
 export class RegisterUserComponent {
@@ -38,9 +41,12 @@ export class RegisterUserComponent {
     repeatPassword: ['', [Validators.required]],
     birthdayDate: [null, [Validators.required]],
     gender: ['', [Validators.required]],
-    phoneNumber: ['', [Validators.required]],
+    phoneNumber: [undefined, [Validators.required]],
   });
-
+  SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.Chile];
   constructor(
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
@@ -66,5 +72,13 @@ export class RegisterUserComponent {
 
   onChange(result: Date): void {
     console.log('onChange: ', result);
+  }
+  
+  isValid(): string {
+    if (!this.validateForm.controls['phoneNumber']?.touched) {
+      return '';
+    }
+    console.log(!this.validateForm.controls['phoneNumber']?.valid);
+    return !this.validateForm.controls['phoneNumber']?.valid ? 'error' : 'success';
   }
 }
