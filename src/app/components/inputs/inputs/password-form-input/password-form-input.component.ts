@@ -7,17 +7,14 @@ import {
   NG_VALUE_ACCESSOR,
   FormControl,
 } from '@angular/forms';
+import { ValidationService } from '../../../../services/validation.service';
 
 @Component({
   selector: 'password-form-input',
   templateUrl: './password-form-input.component.html',
   styleUrl: './password-form-input.component.scss',
   standalone: true,
-  imports: [
-    CommonModule,
-    DemoNgZorroAntdModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, DemoNgZorroAntdModule, ReactiveFormsModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -32,11 +29,13 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
+  @Input({}) repeatPassword: boolean = false;
   passwordVisible: boolean = false;
   value: string = '';
-
-  constructor() {}
-
+  validationService: ValidationService;
+  constructor(_validationService: ValidationService) {
+    this.validationService = _validationService;
+  }
   isValid(): string {
     if (!this.formControl?.touched) {
       return '';
@@ -67,6 +66,7 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
   onInputChange(event: Event) {
     const newValue = (event.target as HTMLInputElement).value;
     this.value = newValue;
+    // console.log(this.containMayus(this.value));
     this.onChange(newValue);
     this.onTouched();
   }
