@@ -1,8 +1,6 @@
 @import '../../../../styles/scss/variables.scss';
 :host ::ng-deep .control_phone {
   max-width: 100% !important;
-  .icon_result{
-  }
   ngx-intl-tel-input {
     input {
       border: 1px solid $border-color;
@@ -21,7 +19,7 @@
       }
     }
   }
-  .input_error{
+  .input_error {
     input {
       border: 1px solid $error-color !important;
       color: $font-color;
@@ -50,4 +48,20 @@
 }
 ::ng-deep .ant-form-item {
   margin: 0px !important;
+}
+.phone_input {
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  & > :first-child {
+    z-index: 1;
+  }
+
+  & > :nth-child(2) {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    padding: 10px;
+  }
 }

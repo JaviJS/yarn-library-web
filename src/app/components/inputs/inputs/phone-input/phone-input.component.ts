@@ -61,7 +61,6 @@ export class PhoneInputComponent implements ControlValueAccessor {
     }
     if (this.formControl.errors) {
       this.classInput = 'input_error';
-      console.log('entro en error');
       return !this.formControl?.valid && this.formControl.errors['required']
         ? 'error'
         : 'success';
@@ -94,6 +93,7 @@ export class PhoneInputComponent implements ControlValueAccessor {
     if (this.phone) {
       newValue.value = this.phone.number;
     }
+
     this.onChange(this.phone);
     this.onTouched();
   }
