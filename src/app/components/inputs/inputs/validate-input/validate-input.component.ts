@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { DemoNgZorroAntdModule } from '../../../../ng-zorro-antd.module';
+import { ErrorInputModel } from '../../../../models/error-input.model';
+
 import {
   ReactiveFormsModule,
   ControlValueAccessor,
@@ -23,11 +25,11 @@ import {
 })
 export class ValidateInputComponent implements ControlValueAccessor {
   @Input({ required: true }) id: string = '';
-  @Input({ required: true }) errorTip: string = '';
   @Input({ required: true }) icon: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
+  @Input({ required: true }) errors: ErrorInputModel | undefined;
   value: string = '';
 
   constructor() {}

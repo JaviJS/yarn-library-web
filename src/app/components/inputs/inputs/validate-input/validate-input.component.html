@@ -8,7 +8,7 @@
     >{{ label }}</nz-form-label
   >
   <nz-form-control
-    [nzErrorTip]="errorTip"
+    [nzErrorTip]="combineTpl"
     [nzValidateStatus]="isValid()"
     nzHasFeedback
   >
@@ -21,6 +21,24 @@
         [value]="value"
         (input)="onInputChange($event)"
       />
+      <ng-template #combineTpl let-control>
+        @if (this.formControl?.errors?.['maxlength']) {
+          {{ errors?.maxLength }}
+          <br />
+        }
+        @if (this.formControl?.errors?.['minlength']) {
+          {{ errors?.minLength }}
+          <br />
+        }
+        @if (this.formControl?.errors?.['required']) {
+          {{ errors?.required }}
+          <br />
+        }
+        @if (this.formControl?.errors?.['pattern']) {
+          {{ errors?.pattern }}
+          <br />
+        }
+      </ng-template>
     </nz-input-group>
   </nz-form-control>
 </nz-form-item>

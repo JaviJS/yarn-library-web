@@ -31,6 +31,7 @@
             icon="user"
             placeholder="Ingresa tu nombre"
             label="Nombre"
+            [errors]="errorsName"
           ></validate-input>
         </div>
         <div nz-col nzSpan="12">
@@ -55,6 +56,7 @@
             icon="mail"
             placeholder="Ingresa tu correo electrónico"
             label="Correo electrónico"
+            [errors]="errorsEmail"
           ></validate-input>
         </div>
         <div nz-col nzSpan="12">
