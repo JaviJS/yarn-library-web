@@ -1,5 +1,4 @@
 <nz-form-item>
-  {{phone | json }}
   <nz-form-label
     [nzSm]="24"
     [nzXs]="24"
@@ -16,35 +15,73 @@
     nzHasFeedback
     class="control_phone"
   >
-    <ngx-intl-tel-input
-      [cssClass]="'intl-tel-input'"
-      [preferredCountries]="preferredCountries"
-      [enableAutoCountrySelect]="true"
-      [enablePlaceholder]="true"
-      searchCountryPlaceholder="Selecciona un pais"
-      [searchCountryFlag]="true"
-      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-      [selectFirstCountry]="false"
-      [selectedCountryISO]="CountryISO.Chile"
-      [maxLength]="15"
-      [phoneValidation]="true"
-      [separateDialCode]="true"
-      [numberFormat]="PhoneNumberFormat.National"
-      name="phoneNumber"
-      [value]="phone"
-      [id]="id"
-      (input)="onInputChange($event)"
-    >
-    </ngx-intl-tel-input>
+    @if (formControl) {
+      <ngx-intl-tel-input
+        [class]="classInput"
+        [cssClass]="'intl-tel-input'"
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true"
+        searchCountryPlaceholder="Selecciona un pais"
+        [searchCountryFlag]="true"
+        [searchCountryField]="[
+          SearchCountryField.Iso2,
+          SearchCountryField.Name
+        ]"
+        [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.Chile"
+        [maxLength]="15"
+        [phoneValidation]="true"
+        [separateDialCode]="true"
+        [numberFormat]="PhoneNumberFormat.National"
+        name="phoneNumber"
+        [id]="id"
+        [formControl]="formControl"
+        [(ngModel)]="phone"
+        (input)="onInputChange($event)"
+      >
+      </ngx-intl-tel-input>
+    }
   </nz-form-control>
+  <div class="icon_result">
+    @if (this.formControl?.touched && this.formControl?.errors) {
+      <span
+        nz-icon
+        nzType="close-circle"
+        nzTheme="fill"
+        class="error-label"
+      ></span>
+    }
+    @if (!this.formControl?.errors) {
+      <span
+        nz-icon
+        nzType="check-circle"
+        nzTheme="fill"
+        class="valid_icon"
+      ></span>
+    }
+  </div>
 </nz-form-item>
-<!-- <div>
-  <div class="alert alert-danger" *ngIf="!f.form.value.phone">Phone Number Required</div>
-  <div *ngIf="f.form.value.phone && f.form.controls['phone'].errors">Invalid Phone Number</div>
-</div> -->
-<br>
-<div><strong>Is input valid:</strong> <pre>{{ !formControl?.invalid }}</pre></div>
-<div><strong>Is input touched:</strong> <pre>{{ formControl?.touched }}</pre></div>
-<div><strong>Is form valid:</strong> <pre>{{ formControl?.valid }}</pre></div>
-<div><strong>Form value:</strong> <pre>{{ formControl?.value | json }}</pre></div>
-<div><strong>Form validation errors:</strong> <pre>{{ formControl?.errors | json }}</pre></div>
+@if (formControl?.value && formControl?.errors) {
+  <div class="error-label">Ingresa un número válido</div>
+}
+<div>
+  <strong>Is input valid:</strong>
+  <pre>{{ !formControl?.invalid }}</pre>
+</div>
+<div>
+  <strong>Is input touched:</strong>
+  <pre>{{ formControl?.touched }}</pre>
+</div>
+<div>
+  <strong>Is form valid:</strong>
+  <pre>{{ formControl?.valid }}</pre>
+</div>
+<div>
+  <strong>Form value:</strong>
+  <pre>{{ formControl?.value | json }}</pre>
+</div>
+<div>
+  <strong>Form validation errors:</strong>
+  <pre>{{ formControl?.errors | json }}</pre>
+</div>

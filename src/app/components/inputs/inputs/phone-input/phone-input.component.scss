@@ -1,28 +1,53 @@
 @import '../../../../styles/scss/variables.scss';
 :host ::ng-deep .control_phone {
   max-width: 100% !important;
-}
-::ng-deep ngx-intl-tel-input {
-  input {
-    border: 1px solid $border-color;
-    border-radius: 10px;
-    color: $font-color;
-    padding: 8px;
-    width: 100%;
-    &:hover {
-      border: 1px solid #40a9ff;
-    }
-    &:focus {
-      border-color: #40a9ff;
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-      border-right-width: 1px;
-      outline: 0 !important;
+  .icon_result{
+  }
+  ngx-intl-tel-input {
+    input {
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      color: $font-color;
+      padding: 8px;
+      width: 100%;
+      &:hover {
+        border: 1px solid $border-color2;
+      }
+      &:focus {
+        border-color: $border-color2;
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        border-right-width: 1px;
+        outline: 0 !important;
+      }
     }
   }
+  .input_error{
+    input {
+      border: 1px solid $error-color !important;
+      color: $font-color;
+      &:hover {
+        border: 1px solid $border-color2;
+      }
+      &:focus {
+        border-color: $error-color;
+        box-shadow: 0 0 0 2px $shadow-error-color;
+      }
+    }
+  }
+  .iti {
+    width: 100%;
+  }
+  .iti--allow-dropdown {
+    width: 100%;
+  }
 }
-:host ::ng-deep .iti {
-  width: 100%;
+
+.error-label {
+  color: $error-color;
 }
-:host ::ng-deep .iti--allow-dropdown {
-  width: 100%;
+.valid_icon {
+  color: $valid-color;
+}
+::ng-deep .ant-form-item {
+  margin: 0px !important;
 }

@@ -81,7 +81,7 @@
           ></password-form-input>
         </div>
         <div nz-col nzSpan="12">
-          <!-- <phone-input
+          <phone-input
             formControlName="phoneNumber"
             id="phoneNumber"
             [formControl]="validateForm.controls['phoneNumber']"
@@ -89,55 +89,7 @@
             icon="phoneNumber"
             placeholder="Ingresa tu numero teléfonico"
             label="Numero teléfonico"
-          ></phone-input> -->
-          <nz-form-item>
-            <nz-form-label
-              [nzSm]="24"
-              [nzXs]="24"
-              [nzRequired]="true"
-              [nzNoColon]="true"
-              nzFor="phoneNumber"
-              >dgfdfgdf</nz-form-label
-            >
-            <nz-form-control
-              [nzSm]="14"
-              [nzXs]="24"
-              nzErrorTip="errorTip"
-              [nzValidateStatus]="isValid()"
-    nzHasFeedback
-              class="control_phone"
-            >
-              <ngx-intl-tel-input
-                [cssClass]="'intl-tel-input'"
-                [preferredCountries]="preferredCountries"
-                [enableAutoCountrySelect]="true"
-                [enablePlaceholder]="true"
-                searchCountryPlaceholder="Selecciona un pais"
-                [searchCountryFlag]="true"
-                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                [selectFirstCountry]="false"
-                [selectedCountryISO]="CountryISO.Chile"
-                [maxLength]="15"
-                [phoneValidation]="true"
-                [separateDialCode]="true"
-                [numberFormat]="PhoneNumberFormat.National"
-                name="phoneNumber"
-                id="phoneNumber"
-                formControlName="phoneNumber"
-              >
-              </ngx-intl-tel-input>
-            </nz-form-control>
-          </nz-form-item>
-          <!-- <div>
-            <div class="alert alert-danger" *ngIf="!f.form.value.phone">Phone Number Required</div>
-            <div *ngIf="f.form.value.phone && f.form.controls['phone'].errors">Invalid Phone Number</div>
-          </div> -->
-          <br>
-          <div><strong>Is input valid:</strong> <pre>{{ !validateForm.controls['phoneNumber'].invalid }}</pre></div>
-          <div><strong>Is input touched:</strong> <pre>{{ validateForm.controls['phoneNumber'].touched }}</pre></div>
-          <div><strong>Is form valid:</strong> <pre>{{ validateForm.controls['phoneNumber'].valid }}</pre></div>
-          <div><strong>Form value:</strong> <pre>{{ validateForm.value | json }}</pre></div>
-          <div><strong>Form validation errors:</strong> <pre>{{ validateForm.controls['phoneNumber'].errors | json }}</pre></div>
+          ></phone-input>
         </div>
       </div>
       <div nz-row>

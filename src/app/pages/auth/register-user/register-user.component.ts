@@ -10,8 +10,6 @@ import { PhoneInputComponent } from '../../../components/inputs/inputs/phone-inp
 import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
-import { NgxIntlTelInputModule } from 'ngx-intl-tel-input-gg';
-import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input-gg';
 @Component({
   selector: 'register-user',
   templateUrl: './register-user.component.html',
@@ -28,8 +26,7 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
     ValidateInputComponent,
     PasswordFormInputComponent,
     ValidateSelectComponent,
-    PhoneInputComponent,
-    NgxIntlTelInputModule
+    PhoneInputComponent
   ],
 })
 export class RegisterUserComponent {
@@ -43,10 +40,6 @@ export class RegisterUserComponent {
     gender: ['', [Validators.required]],
     phoneNumber: [undefined, [Validators.required]],
   });
-  SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.Chile];
   constructor(
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,

@@ -2,7 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { DemoNgZorroAntdModule } from '../../../../ng-zorro-antd.module';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input-gg';
-import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input-gg';
+import {
+  SearchCountryField,
+  CountryISO,
+  PhoneNumberFormat,
+} from 'ngx-intl-tel-input-gg';
 import {
   ReactiveFormsModule,
   ControlValueAccessor,
@@ -16,11 +20,17 @@ import {
   templateUrl: './phone-input.component.html',
   styleUrl: './phone-input.component.scss',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule,FormsModule, ReactiveFormsModule,NgxIntlTelInputModule],
+  imports: [
+    CommonModule,
+    DemoNgZorroAntdModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxIntlTelInputModule,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() =>PhoneInputComponent),
+      useExisting: forwardRef(() => PhoneInputComponent),
       multi: true,
     },
   ],
@@ -30,20 +40,33 @@ export class PhoneInputComponent implements ControlValueAccessor {
   @Input({ required: true }) errorTip: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
-  @Input({ required: true }) formControl: FormControl | undefined;
-  phone: any;
+  @Input({ required: true }) formControl: FormControl | null = null;
+  phone = {
+    number: '',
+    dialCode: '',
+    countryCode: '',
+    internationalNumber: '',
+    nationalNumber: '',
+  };
   SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
+  CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.Chile];
+  preferredCountries: CountryISO[] = [CountryISO.Chile];
+  classInput = '';
   constructor() {}
-
   isValid(): string {
+    this.classInput = "'";
     if (!this.formControl?.touched) {
-      return '';
+      return 'success';
     }
-    console.log(!this.formControl?.valid);
-    return !this.formControl?.valid ? 'error' : 'success';
+    if (this.formControl.errors) {
+      this.classInput = 'input_error';
+      console.log('entro en error');
+      return !this.formControl?.valid && this.formControl.errors['required']
+        ? 'error'
+        : 'success';
+    }
+    return 'success';
   }
   // Métodos requeridos por ControlValueAccessor
   onChange: any = () => {};
@@ -66,10 +89,12 @@ export class PhoneInputComponent implements ControlValueAccessor {
   }
 
   onInputChange(event: Event) {
-    console.log(event)
-    const newValue = (event.target as HTMLInputElement).value;
-    this.phone = newValue;
-    this.onChange(newValue);
+    const newValue = event.target as HTMLInputElement;
+
+    if (this.phone) {
+      newValue.value = this.phone.number;
+    }
+    this.onChange(this.phone);
     this.onTouched();
   }
 }
