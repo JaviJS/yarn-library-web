@@ -9,7 +9,7 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { ValidationService } from '../../../../services/validation.service';
-
+import { ErrorInputModel } from '../../../../models/error-input.model';
 @Component({
   selector: 'password-form-input',
   templateUrl: './password-form-input.component.html',
@@ -26,10 +26,10 @@ import { ValidationService } from '../../../../services/validation.service';
 })
 export class PasswordFormInputComponent implements ControlValueAccessor {
   @Input({ required: true }) id: string = '';
-  @Input({ required: true }) errorTip: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
+  @Input({ required: true }) errors: ErrorInputModel | undefined;
   @Input({}) formGroup: FormGroup | undefined;
   @Input({}) repeatPassword: boolean = false;
   passwordVisible: boolean = false;
@@ -43,16 +43,6 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
       return '';
     }
     return !this.formControl?.valid ? 'error' : 'success';
-  }
-  updateConfirmValidator(): void {
-    console.log(this.formGroup)
-    /** wait for refresh value */
-    if (!this.repeatPassword) {
-      console.log(this.formGroup)
-      // Promise.resolve().then(() =>
-      //   this.formGroup.repeatPassword.updateValueAndValidity()
-      // );
-    }
   }
   // Métodos requeridos por ControlValueAccessor
   onChange: any = () => {};
@@ -78,6 +68,17 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
     const newValue = (event.target as HTMLInputElement).value;
     this.value = newValue;
     // console.log(this.containMayus(this.value));
+    /** wait for refresh value */
+    if (!this.repeatPassword) {
+      Promise.resolve().then(() =>
+        this.formGroup?.controls['repeatPassword'].updateValueAndValidity()
+      );
+      // console.log(this.formGroup?.controls.repeatPassword.updateValueAndValidity());
+      // Promise.resolve().then(() =>
+      //   this.formGroup?.repeatPassword.updateValueAndValidity()
+      // );
+      // value
+    }
     this.onChange(newValue);
     this.onTouched();
   }

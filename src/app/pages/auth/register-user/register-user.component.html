@@ -77,9 +77,10 @@
             formControlName="password"
             id="password"
             [formControl]="validateForm.controls['password']"
-            errorTip="Porfavor, ingresa tu contraseña!"
             placeholder="Ingresa tu contraseña"
             label="Contraseña"
+            [formGroup]="validateForm"
+            [errors]="errorsPassword"
           ></password-form-input>
         </div>
         <div nz-col nzSpan="12">
@@ -100,11 +101,10 @@
             formControlName="repeatPassword"
             id="repeatPassword"
             [formControl]="validateForm.controls['repeatPassword']"
-            errorTip="Porfavor, ingresa nuevamente tu contraseña!"
             placeholder="Ingresa nuevamente contraseña"
             label="Repetir contraseña"
             [repeatPassword]="true"
-            [formGroup]="validateForm"
+            [errors]="errorsRepeatPassword"
           ></password-form-input>
         </div>
         <div nz-col nzSpan="12"></div>

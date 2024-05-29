@@ -3,4 +3,5 @@ export interface ErrorInputModel {
   minLength?: string;
   maxLength?: string;
   pattern?: string;
+  confirm?: string;
 }

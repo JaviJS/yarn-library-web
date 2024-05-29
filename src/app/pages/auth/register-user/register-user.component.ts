@@ -14,6 +14,8 @@ import {
   Validators,
   AbstractControl,
   ValidatorFn,
+  FormGroup,
+  FormControl,
 } from '@angular/forms';
 @Component({
   selector: 'register-user',
@@ -35,46 +37,16 @@ import {
   ],
 })
 export class RegisterUserComponent {
-  confirmationValidator: ValidatorFn = (
-    control: AbstractControl
-  ): { [s: string]: boolean } => {
-    console.log();
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
-
-
-
   listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
-  validateForm = this.fb.group({
-    name: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(50),
-        Validators.pattern('^[A-Za-z ]+$'),
-      ],
-    ],
-    email: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(
-          '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$'
-        ),
-      ],
-    ],
-    password: ['', [Validators.required]],
-    repeatPassword: ['', [Validators.required, this.confirmationValidator2]],
-    birthdayDate: [null, [Validators.required]],
-    gender: ['', [Validators.required]],
-    phoneNumber: [undefined, [Validators.required]],
-  });
+  validateForm: FormGroup<{
+    name: FormControl<string>;
+    email: FormControl<string>;
+    password: FormControl<string>;
+    repeatPassword: FormControl<string>;
+    birthdayDate: FormControl<any>;
+    gender: FormControl<string>;
+    phoneNumber: FormControl<any>;
+  }>;
 
   errorsName = {
     required: 'Porfavor, ingresa tu nombre!',
@@ -86,11 +58,44 @@ export class RegisterUserComponent {
     required: 'Porfavor, ingresa tu nombre!',
     pattern: 'El formato debe ser ###@###.##, ejemplo hola@hotmail.cl!',
   };
+  errorsPassword = {
+    required: 'Porfavor, ingresa tu contraseña!'
+  };
+  errorsRepeatPassword = {
+    required: 'Porfavor, ingresa nuevamente tu contraseña!',
+    confirm: 'Las contraseñas que ingresas no coinciden',
+  };
   constructor(
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.validateForm = this.fb.group({
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+          Validators.pattern('^[A-Za-z ]+$'),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$'
+          ),
+        ],
+      ],
+      password: ['', [Validators.required]],
+      repeatPassword: ['', [Validators.required, this.confirmationValidator]],
+      birthdayDate: [null, [Validators.required]],
+      gender: ['', [Validators.required]],
+      phoneNumber: [undefined, [Validators.required]],
+    });
+  }
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
@@ -123,6 +128,7 @@ export class RegisterUserComponent {
   }
 
   confirmationValidator2(control: AbstractControl): { [s: string]: boolean } {
+    console.log();
     if (!control.value) {
       return { required: true };
     } else if (control.value !== this.validateForm.controls.password.value) {
@@ -130,4 +136,17 @@ export class RegisterUserComponent {
     }
     return {};
   }
+  confirmationValidator: ValidatorFn = (
+    control: AbstractControl
+  ): { [s: string]: boolean } => {
+    if (this.validateForm) {
+      if (!control.value) {
+        return { required: true };
+      } else if (control.value !== this.validateForm.controls.password.value) {
+        return { confirm: true, error: true };
+      }
+      return {};
+    }
+    return {};
+  };
 }
