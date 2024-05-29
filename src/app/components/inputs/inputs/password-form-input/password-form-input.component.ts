@@ -6,6 +6,7 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
   FormControl,
+  FormGroup,
 } from '@angular/forms';
 import { ValidationService } from '../../../../services/validation.service';
 
@@ -29,6 +30,7 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | undefined;
+  @Input({}) formGroup: FormGroup | undefined;
   @Input({}) repeatPassword: boolean = false;
   passwordVisible: boolean = false;
   value: string = '';
@@ -42,7 +44,16 @@ export class PasswordFormInputComponent implements ControlValueAccessor {
     }
     return !this.formControl?.valid ? 'error' : 'success';
   }
-
+  updateConfirmValidator(): void {
+    console.log(this.formGroup)
+    /** wait for refresh value */
+    if (!this.repeatPassword) {
+      console.log(this.formGroup)
+      // Promise.resolve().then(() =>
+      //   this.formGroup.repeatPassword.updateValueAndValidity()
+      // );
+    }
+  }
   // Métodos requeridos por ControlValueAccessor
   onChange: any = () => {};
   onTouched: any = () => {};

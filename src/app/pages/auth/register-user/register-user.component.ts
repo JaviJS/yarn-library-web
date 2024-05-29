@@ -9,7 +9,12 @@ import { ValidateInputComponent } from '../../../components/inputs/inputs/valida
 import { PhoneInputComponent } from '../../../components/inputs/inputs/phone-input/phone-input.component';
 import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
-import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import {
+  NonNullableFormBuilder,
+  Validators,
+  AbstractControl,
+  ValidatorFn,
+} from '@angular/forms';
 @Component({
   selector: 'register-user',
   templateUrl: './register-user.component.html',
@@ -30,6 +35,20 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
   ],
 })
 export class RegisterUserComponent {
+  confirmationValidator: ValidatorFn = (
+    control: AbstractControl
+  ): { [s: string]: boolean } => {
+    console.log();
+    if (!control.value) {
+      return { required: true };
+    } else if (control.value !== this.validateForm.controls.password.value) {
+      return { confirm: true, error: true };
+    }
+    return {};
+  };
+
+
+
   listGenders = ['Femenino', 'Masculino', 'Otro', 'Prefiero no decirlo'];
   validateForm = this.fb.group({
     name: [
@@ -51,7 +70,7 @@ export class RegisterUserComponent {
       ],
     ],
     password: ['', [Validators.required]],
-    repeatPassword: ['', [Validators.required]],
+    repeatPassword: ['', [Validators.required, this.confirmationValidator2]],
     birthdayDate: [null, [Validators.required]],
     gender: ['', [Validators.required]],
     phoneNumber: [undefined, [Validators.required]],
@@ -72,7 +91,6 @@ export class RegisterUserComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
@@ -102,5 +120,14 @@ export class RegisterUserComponent {
     return !this.validateForm.controls['phoneNumber']?.valid
       ? 'error'
       : 'success';
+  }
+
+  confirmationValidator2(control: AbstractControl): { [s: string]: boolean } {
+    if (!control.value) {
+      return { required: true };
+    } else if (control.value !== this.validateForm.controls.password.value) {
+      return { confirm: true, error: true };
+    }
+    return {};
   }
 }
