@@ -35,7 +35,7 @@ import {
     PasswordFormInputComponent,
     ValidateSelectComponent,
     PhoneInputComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
   ],
 })
 export class RegisterUserComponent {
@@ -67,6 +67,7 @@ export class RegisterUserComponent {
     required: 'Porfavor, ingresa nuevamente tu contraseña!',
     confirm: 'Las contraseñas que ingresas no coinciden',
   };
+  submit = false;
   constructor(
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
@@ -107,18 +108,14 @@ export class RegisterUserComponent {
     });
   }
   submitForm(): void {
-    console.log('entro a submit');
+    this.submit = true;
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
     } else {
-      // this.validateForm.markAsDirty()
-      // this.validateForm.updateValueAndValidity()
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
-          console.log('Estado después de marcar como sucio y actualizar:', control.dirty, control.invalid);
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
-          console.log('Estado después de marcar como sucio y actualizar:', control.dirty, control.invalid);
         }
       });
     }

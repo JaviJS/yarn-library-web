@@ -13,7 +13,12 @@ import {
   templateUrl: './validate-select.component.html',
   styleUrl: './validate-select.component.scss',
   standalone: true,
-  imports: [CommonModule, DemoNgZorroAntdModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    DemoNgZorroAntdModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -34,7 +39,7 @@ export class ValidateSelectComponent implements ControlValueAccessor {
   constructor() {}
 
   isValid(): string {
-    if (!this.formControl?.touched) {
+    if (!this.formControl?.touched && !this.formControl?.dirty) {
       return '';
     }
     return !this.formControl?.valid ? 'error' : 'success';

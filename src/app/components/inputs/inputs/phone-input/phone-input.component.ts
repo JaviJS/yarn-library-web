@@ -41,6 +41,7 @@ export class PhoneInputComponent implements ControlValueAccessor {
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) label: string = '';
   @Input({ required: true }) formControl: FormControl | null = null;
+  @Input({ required: true }) submit: boolean = false;
   phone = {
     number: '',
     dialCode: '',
@@ -56,10 +57,16 @@ export class PhoneInputComponent implements ControlValueAccessor {
   constructor() {}
   isValid(): string {
     this.classInput = "'";
-    if (!this.formControl?.touched) {
+    console.log(this.formControl?.touched, this.formControl?.dirty);
+    if (!this.formControl?.touched && !this.formControl?.dirty) {
       return 'success';
     }
-    if (this.formControl.errors) {
+    if (this.submit && this.formControl?.dirty && this.formControl.errors) {
+      return !this.formControl?.valid && this.formControl.errors['required']
+        ? 'error'
+        : 'success';
+    }
+    if (this.formControl?.touched && this.formControl.errors) {
       this.classInput = 'input_error';
       return !this.formControl?.valid && this.formControl.errors['required']
         ? 'error'
