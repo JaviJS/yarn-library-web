@@ -1,0 +1,64 @@
+<div class="container" nz-flex nzJustify="center" nzAlign="center">
+  <nz-card class="card">
+    <div nz-row>
+      <div nz-col nzSpan="24" class="card__avatar">
+        <nz-avatar
+          class="card__avatar_img"
+          [nzShape]="'square'"
+          nzIcon="Logo Keririn"
+          nzSrc="../../../../assets/Logo_Keririn_Sin_Fondo1.png"
+        ></nz-avatar>
+      </div>
+    </div>
+    <div nz-row class="card__row_title">
+      <div nz-col nzSpan="24">
+        <h1 nz-typography class="card__title">
+          Verifica tu correo electrónico
+        </h1>
+      </div>
+    </div>
+    <div nz-row class="card__row_description">
+      <div nz-col nzSpan="24">
+        <p nz-typography class="card__description">
+          Ingresa el código de 6 dígitos que fue enviado a
+          <span>{{ 'javivimi14@gmail.com' }}</span>
+        </p>
+      </div>
+    </div>
+    <form
+      nz-form
+      [formGroup]="validateForm"
+      class="register-form"
+      (ngSubmit)="submitForm()"
+    >
+      <div nz-row [nzGutter]="16" class="card__row">
+        <custom-otp-input class="card__input" [allowNumbersOnly]="false" [length]="6" [isPasswordInput]="false" [formControl]="validateForm.controls['code']"></custom-otp-input>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <p nz-typography class="card__description">
+            El código expirara en <span>9:59</span>
+          </p>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <p nz-typography class="card__description">
+            ¿No recibiste el código?<custom-text-button
+              label="Reenviar código"
+            ></custom-text-button>
+          </p>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <custom-button
+            label="Verificar"
+            class="card__contain_button"
+            btnClass="big-btn"
+          ></custom-button>
+        </div>
+      </div>
+    </form>
+  </nz-card>
+</div>

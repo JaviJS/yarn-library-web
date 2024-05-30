@@ -110,7 +110,9 @@ export class RegisterUserComponent {
   submitForm(): void {
     this.submit = true;
     if (this.validateForm.valid) {
+      //ir a metodo saveUser, pasar objeto
       console.log('submit', this.validateForm.value);
+      this.goToConfirmEmail();
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -120,18 +122,8 @@ export class RegisterUserComponent {
       });
     }
   }
-  goToLogin() {
-    // this.router.navigate(['/auth/login']);
-    console.log(this.validateForm.value);
-  }
-  isValid(): string {
-    if (!this.validateForm.controls['phoneNumber']?.touched) {
-      return '';
-    }
-    console.log(!this.validateForm.controls['phoneNumber']?.valid);
-    return !this.validateForm.controls['phoneNumber']?.valid
-      ? 'error'
-      : 'success';
+  goToConfirmEmail() {
+    this.router.navigate(['/auth/confirmar-correo']);
   }
   confirmationValidator: ValidatorFn = (
     control: AbstractControl

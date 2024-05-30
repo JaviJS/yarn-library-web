@@ -1,0 +1,9 @@
+@import '../../../styles/scss/variables.scss';
+button {
+  color: $primary-color;
+  font-weight: bold;
+  padding-left: 5px;
+  &:hover{
+    color: $background-dark;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="group_input">
+    <ng-otp-input
+      [config]="otpConfig"
+      (onInputChange)="onOtpChange($event)"
+    ></ng-otp-input>
+  @if (
+    touch &&
+    (formControl?.value.length === 0 || this.formControl?.value.length < 6)
+  ) {
+    <p nz-typography class="group_input__label_error">
+      Porfavor, ingresa el código enviado!
+    </p>
+  }
+</div>

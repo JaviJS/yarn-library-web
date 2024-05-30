@@ -57,11 +57,11 @@ export class PhoneInputComponent implements ControlValueAccessor {
   constructor() {}
   isValid(): string {
     this.classInput = "'";
-    console.log(this.formControl?.touched, this.formControl?.dirty);
     if (!this.formControl?.touched && !this.formControl?.dirty) {
       return 'success';
     }
     if (this.submit && this.formControl?.dirty && this.formControl.errors) {
+      this.classInput = 'input_error';
       return !this.formControl?.valid && this.formControl.errors['required']
         ? 'error'
         : 'success';

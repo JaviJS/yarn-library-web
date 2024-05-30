@@ -1,0 +1,20 @@
+@import '../../../../styles/scss/variables.scss';
+
+.group_input {
+  margin: auto;
+  &__label_error {
+    margin: 0px;
+    color: $error-color;
+  }
+}
+::ng-deep .each_input {
+  border: 1px solid $border-color;
+  &:focus {
+    outline: none;
+    border: 1px solid $border-color2;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  &:hover {
+    border: 1px solid $border-color2;
+  }
+}
