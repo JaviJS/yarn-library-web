@@ -11,6 +11,30 @@
   &__avatar {
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: -75px; /* la mitad del diámetro de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* diámetro de la imagen */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    ::ng-deep .ant-avatar {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+      }
+    }
+  }
+  &__row_title{
+    padding-top: 50px;
   }
   &__title {
     color: #0f2029;
@@ -21,5 +45,19 @@
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .card {
+    width: 100% !important;
+    height: 100vh;
+    border-radius: 0px;
+    &__avatar {
+      top: 0;
+      border-radius: 0;
+    }
+    &__row_title{
+      padding-top: 100px;
+    }
   }
 }

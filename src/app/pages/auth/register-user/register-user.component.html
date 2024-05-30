@@ -3,14 +3,14 @@
     <div nz-row>
       <div nz-col nzSpan="24" class="card__avatar">
         <nz-avatar
+          class="card__avatar_img"
           [nzShape]="'square'"
-          [nzSize]="120"
           nzIcon="Logo Keririn"
           nzSrc="../../../../assets/Logo_Keririn_Sin_Fondo1.png"
         ></nz-avatar>
       </div>
     </div>
-    <div nz-row>
+    <div nz-row class="card__row_title">
       <div nz-col nzSpan="24">
         <h1 nz-typography class="card__title">Registrarse</h1>
       </div>
@@ -21,8 +21,8 @@
       class="register-form"
       (ngSubmit)="submitForm()"
     >
-      <div nz-row>
-        <div nz-col nzSpan="12">
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzXs="24" nzSm="12">
           <validate-input
             formControlName="name"
             id="name"
@@ -34,7 +34,7 @@
             [errors]="errorsName"
           ></validate-input>
         </div>
-        <div nz-col nzSpan="12">
+        <div nz-col nzXs="24" nzSm="12">
           <custom-datepicker
             id="birthdayDate"
             [formControl]="validateForm.controls['birthdayDate']"
@@ -46,8 +46,8 @@
           ></custom-datepicker>
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="12">
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzXs="24" nzSm="12">
           <validate-input
             formControlName="email"
             id="email"
@@ -59,7 +59,7 @@
             [errors]="errorsEmail"
           ></validate-input>
         </div>
-        <div nz-col nzSpan="12">
+        <div nz-col nzXs="24" nzSm="12">
           <validate-select
             formControlName="gender"
             id="gender"
@@ -71,8 +71,8 @@
           ></validate-select>
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="12">
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzXs="24" nzSm="12">
           <password-form-input
             formControlName="password"
             id="password"
@@ -83,7 +83,7 @@
             [errors]="errorsPassword"
           ></password-form-input>
         </div>
-        <div nz-col nzSpan="12">
+        <div nz-col nzXs="24" nzSm="12">
           <phone-input
             formControlName="phoneNumber"
             id="phoneNumber"
@@ -95,8 +95,8 @@
           ></phone-input>
         </div>
       </div>
-      <div nz-row>
-        <div nz-col nzSpan="12">
+      <div nz-row [nzGutter]="16">
+        <div nz-col nzXs="24" nzSm="12">
           <password-form-input
             formControlName="repeatPassword"
             id="repeatPassword"
@@ -107,11 +107,15 @@
             [errors]="errorsRepeatPassword"
           ></password-form-input>
         </div>
-        <div nz-col nzSpan="12"></div>
+        <div nzXs="24" nzSm="12"></div>
       </div>
       <div nz-row>
         <div nz-col nzSpan="24">
-          <custom-button label="Registarse" class="card__contain_button" btnClass="medium-btn"></custom-button>
+          <custom-button
+            label="Registarse"
+            class="card__contain_button"
+            btnClass="medium-btn"
+          ></custom-button>
         </div>
       </div>
     </form>
