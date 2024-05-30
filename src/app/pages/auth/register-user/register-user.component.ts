@@ -111,10 +111,14 @@ export class RegisterUserComponent {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
     } else {
+      // this.validateForm.markAsDirty()
+      // this.validateForm.updateValueAndValidity()
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
+          console.log('Estado después de marcar como sucio y actualizar:', control.dirty, control.invalid);
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
+          console.log('Estado después de marcar como sucio y actualizar:', control.dirty, control.invalid);
         }
       });
     }
