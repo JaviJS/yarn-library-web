@@ -9,6 +9,7 @@ import { ValidateInputComponent } from '../../../components/inputs/inputs/valida
 import { PhoneInputComponent } from '../../../components/inputs/inputs/phone-input/phone-input.component';
 import { ValidateSelectComponent } from '../../../components/inputs/selects/validate-select/validate-select.component';
 import { PasswordFormInputComponent } from '../../../components/inputs/inputs/password-form-input/password-form-input.component';
+import { CustomButtonComponent } from '../../../components/buttons/custom-button/custom-button.component';
 import {
   NonNullableFormBuilder,
   Validators,
@@ -34,6 +35,7 @@ import {
     PasswordFormInputComponent,
     ValidateSelectComponent,
     PhoneInputComponent,
+    CustomButtonComponent
   ],
 })
 export class RegisterUserComponent {
@@ -59,7 +61,7 @@ export class RegisterUserComponent {
     pattern: 'El formato debe ser ###@###.##, ejemplo hola@hotmail.cl!',
   };
   errorsPassword = {
-    required: 'Porfavor, ingresa tu contraseña!'
+    required: 'Porfavor, ingresa tu contraseña!',
   };
   errorsRepeatPassword = {
     required: 'Porfavor, ingresa nuevamente tu contraseña!',
@@ -89,7 +91,15 @@ export class RegisterUserComponent {
           ),
         ],
       ],
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,15}$'
+          ),
+        ],
+      ],
       repeatPassword: ['', [Validators.required, this.confirmationValidator]],
       birthdayDate: [null, [Validators.required]],
       gender: ['', [Validators.required]],
@@ -97,6 +107,7 @@ export class RegisterUserComponent {
     });
   }
   submitForm(): void {
+    console.log('entro a submit');
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
     } else {
@@ -112,11 +123,6 @@ export class RegisterUserComponent {
     // this.router.navigate(['/auth/login']);
     console.log(this.validateForm.value);
   }
-
-  onChange(result: Date): void {
-    console.log('onChange: ', result);
-  }
-
   isValid(): string {
     if (!this.validateForm.controls['phoneNumber']?.touched) {
       return '';
@@ -125,16 +131,6 @@ export class RegisterUserComponent {
     return !this.validateForm.controls['phoneNumber']?.valid
       ? 'error'
       : 'success';
-  }
-
-  confirmationValidator2(control: AbstractControl): { [s: string]: boolean } {
-    console.log();
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
   }
   confirmationValidator: ValidatorFn = (
     control: AbstractControl

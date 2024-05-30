@@ -17,18 +17,9 @@
     font-weight: bold;
     text-align: center;
   }
-  &__button {
-    color: #0f2029;
-    background-color: #c9e3f0;
-    border-color: transparent;
+  &__contain_button {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  &__button:hover {
-    background-color: #218bc0;
-    color: white;
   }
 }
