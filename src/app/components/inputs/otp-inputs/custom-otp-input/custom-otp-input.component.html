@@ -1,8 +1,9 @@
 <div class="group_input">
-    <ng-otp-input
-      [config]="otpConfig"
-      (onInputChange)="onOtpChange($event)"
-    ></ng-otp-input>
+  <ng-otp-input
+    class="group_input__input"
+    [config]="otpConfig"
+    (onInputChange)="onOtpChange($event)"
+  ></ng-otp-input>
   @if (
     touch &&
     (formControl?.value.length === 0 || this.formControl?.value.length < 6)

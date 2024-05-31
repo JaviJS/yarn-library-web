@@ -1,7 +1,13 @@
 @import '../../../../styles/scss/variables.scss';
 
 .group_input {
-  margin: auto;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  justify-content: center;
+  &__input{
+    width: fit-content;
+  }
   &__label_error {
     margin: 0px;
     color: $error-color;
