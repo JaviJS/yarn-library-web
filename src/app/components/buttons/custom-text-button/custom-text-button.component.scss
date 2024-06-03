@@ -3,7 +3,14 @@ button {
   color: $primary-color;
   font-weight: bold;
   padding-left: 5px;
-  &:hover{
+  &:hover {
     color: $background-dark;
   }
+}
+::ng-deep .ant-btn-link:active {
+  color: $primary-color;
+}
+::ng-deep .ant-btn-link:focus,
+.ant-btn-link:hover {
+  color: $background-dark;
 }

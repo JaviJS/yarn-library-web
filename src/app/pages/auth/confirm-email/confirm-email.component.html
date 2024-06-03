@@ -32,12 +32,18 @@
       (ngSubmit)="submitForm()"
     >
       <div nz-row [nzGutter]="16" class="card__row">
-        <custom-otp-input class="card__input" [allowNumbersOnly]="false" [length]="6" [isPasswordInput]="false" [formControl]="validateForm.controls['code']"></custom-otp-input>
+        <custom-otp-input
+          class="card__input"
+          [allowNumbersOnly]="false"
+          [length]="6"
+          [isPasswordInput]="false"
+          [formControl]="validateForm.controls['code']"
+        ></custom-otp-input>
       </div>
       <div nz-row>
         <div nz-col nzSpan="24">
           <p nz-typography class="card__description">
-            El código expirara en <span>9:59</span>
+            El código expirara en <time-label [timerDisplay]="timerDisplay"></time-label>
           </p>
         </div>
       </div>
@@ -46,6 +52,7 @@
           <p nz-typography class="card__description">
             ¿No recibiste el código?<custom-text-button
               label="Reenviar código"
+              (click)="resetCode()"
             ></custom-text-button>
           </p>
         </div>
