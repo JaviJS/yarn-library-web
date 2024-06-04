@@ -51,4 +51,7 @@ export class LoginComponent {
   goToSelectedProfile() {
     this.router.navigate(['/auth/seleccionarPerfil']);
   }
+  goToRegister() {
+    this.router.navigate(['/auth/registrar-usuario']);
+  }
 }
