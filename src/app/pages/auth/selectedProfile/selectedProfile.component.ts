@@ -29,9 +29,9 @@ export class SelectedProfileComponent {
 
   goToSelectedProfile(event: any, rol: any) {
     if (rol.code === 'admin') {
-      this.router.navigate(['/admin/']);
+      this.router.navigate(['/private/admin/']);
     } else if (rol.code === 'weaver') {
-      this.router.navigate(['/tejedor/']);
+      this.router.navigate(['/private/tejedor/']);
     }
   }
   goToLogin() {
