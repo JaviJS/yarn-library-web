@@ -1,0 +1,22 @@
+@media only screen and (max-width: 720px) {
+  .layout {
+    position: relative;
+    overflow: hidden;
+    min-width: 100vw;
+    &__sidebar {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+.layout {
+  min-height: 100vh;
+  &__sidebar {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+  }
+  &__content {
+    background-color: #f1f2f2;
+  }
+}

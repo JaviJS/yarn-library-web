@@ -1,0 +1,18 @@
+<user-navbar (isCollapsedEmit)="changeCollapsed($event)"></user-navbar>
+<nz-layout class="layout">
+  <nz-sider
+    nzCollapsible
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+    [nzWidth]="sidebarWidth"
+    class="layout__sidebar"
+    [nzCollapsedWidth]="sidebarPosition"
+  >
+    <user-sidebar [isCollapsed]="isCollapsed"></user-sidebar>
+  </nz-sider>
+  <nz-layout>
+    <nz-content class="layout__content">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 // import { PrincipalComponent } from './pages/principal/principal.component';
-import { AdminPageComponent } from './pages/admin/admin-page.component';
-
 export const routes: Routes = [
     {
         path: 'auth',
@@ -10,19 +8,9 @@ export const routes: Routes = [
             import('./pages/auth/auth.routes').then((m) => m.authRoutes),
     },
     {
-        path: 'admin',
+        path: 'private',
         loadChildren: () =>
-            import('./pages/admin/admin-page.routes').then((m) => m.adminRoutes),
-    },
-    {
-        path: 'configuracion',
-        loadChildren: () =>
-            import('./pages/config/config.routes').then((m) => m.configRoutes),
-    },
-    {
-        path: 'perfil',
-        loadChildren: () =>
-            import('./pages/profile/profile.routes').then((m) => m.profileRoutes),
+            import('./pages/private/private.routes').then((m) => m.privateRoutes),
     },
     {
         path: '**',
