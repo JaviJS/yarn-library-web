@@ -49,7 +49,7 @@ export class LoginComponent {
     }
   }
   goToSelectedProfile() {
-    this.router.navigate(['/auth/seleccionarPerfil']);
+    this.router.navigate(['/auth/seleccionar-perfil']);
   }
   goToRegister() {
     this.router.navigate(['/auth/registrar-usuario']);

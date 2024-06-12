@@ -24,7 +24,11 @@
     <div nz-row>
       <div nz-col nzSpan="24">
         <ul class="popover__menu" nz-menu nzMode="inline">
-          <li class="popover__menu__item" nz-menu-item>
+          <li class="popover__menu__item" nz-menu-item (click)="goToSelectedProfile()">
+            <span nz-icon nzType="sync"></span>
+            <span>Cambiar perfil</span>
+          </li>
+          <li class="popover__menu__item" nz-menu-item (click)="goToProfile()">
             <span nz-icon nzType="idcard"></span>
             <span>Perfil</span>
           </li>

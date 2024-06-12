@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { ProfileCardComponent } from '../../cards/profile-card/profile-card.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'menu-popover',
   standalone: true,
@@ -35,4 +36,11 @@ export class MenuPopoverComponent {
     description: this.user.email,
     avatar: this.user.imageUrl,
   };
+  constructor(private router: Router) {}
+  goToSelectedProfile() {
+    this.router.navigate(['auth/seleccionar-perfil']);
+  }
+  goToProfile() {
+    this.router.navigate(['private/perfil']);
+  }
 }

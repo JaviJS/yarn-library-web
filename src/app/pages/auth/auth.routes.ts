@@ -11,7 +11,7 @@ export const authRoutes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'seleccionarPerfil',
+    path: 'seleccionar-perfil',
     component: SelectedProfileComponent,
   },
   {
