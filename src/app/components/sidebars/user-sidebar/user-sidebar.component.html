@@ -1,17 +1,11 @@
 <div class="sidebar__logo"></div>
 @if (!isCollapsed) {
   <nz-card nzWidth="250px" class="sidebar__card">
-    <nz-card-meta [nzTitle]="titleTemplate"></nz-card-meta>
-    <ng-template #avatarTemplate>
-      <nz-avatar [nzSize]="50" nzSrc="../../../assets/yoongi4.jpg"></nz-avatar>
-    </ng-template>
-    <ng-template #titleTemplate>
-      <profile-card [card]="card" typeColor="dark">
-        @if (!hiddenBtn) {
-          <menu-popover typeColor="dark" [icon]="card.icon"></menu-popover>
-        }
-      </profile-card>
-    </ng-template>
+    <profile-card [card]="card" typeColor="dark">
+      @if (!hiddenBtn) {
+        <menu-popover typeColor="dark" [icon]="card.icon"></menu-popover>
+      }
+    </profile-card>
   </nz-card>
 } @else {
   <div class="sidebar__avatar">

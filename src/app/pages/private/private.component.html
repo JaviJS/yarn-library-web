@@ -11,8 +11,15 @@
     <user-sidebar [isCollapsed]="isCollapsed"></user-sidebar>
   </nz-sider>
   <nz-layout>
-    <nz-content class="layout__content">
-      <router-outlet></router-outlet>
+    <nz-content
+      class="layout__content"
+      nz-flex
+      nzJustify="center"
+      nzAlign="center"
+    >
+      <div style="width: 100%;">
+        <router-outlet></router-outlet>
+      </div>
     </nz-content>
   </nz-layout>
 </nz-layout>

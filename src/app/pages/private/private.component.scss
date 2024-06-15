@@ -10,13 +10,16 @@
   }
 }
 .layout {
-  min-height: 100vh;
+  min-height: calc(100vh - 84px);
   &__sidebar {
     position: relative;
     overflow: hidden;
     background-color: white;
   }
   &__content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     background-color: #f1f2f2;
   }
 }

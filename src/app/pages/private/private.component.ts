@@ -25,7 +25,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class PrivateComponent {
   routeBand: string = '';
-  isCollapsed = false;
+  isCollapsed = true;
   sidebarPosition = 60;
   sidebarWidth = '300px';
   hiddenCard = false;

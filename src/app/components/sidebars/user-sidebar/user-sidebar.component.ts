@@ -18,9 +18,7 @@ import { MenuPopoverComponent } from '../../popovers/menu-popover/menu-popover.c
 })
 export class UserSidebarComponent {
   // @Input({required: true}) options: [] = [];
-  @Input({ required: true }) isCollapsed: boolean = false;
-  sidebarPosition = 60;
-  sidebarWidth = '300px';
+  @Input({ required: true }) isCollapsed: boolean = true;
   hiddenBtn = true;
   user = {
     name: 'Javiera Jara Salas',
@@ -57,12 +55,8 @@ export class UserSidebarComponent {
       ])
       .subscribe(result => {
         if (result.breakpoints[Breakpoints.XSmall]) {
-          this.sidebarPosition = 0;
-          this.sidebarWidth = '100%';
           this.hiddenBtn = false;
         } else {
-          this.sidebarPosition = 80;
-          this.sidebarWidth = '350px';
           this.hiddenBtn = true;
         }
       });

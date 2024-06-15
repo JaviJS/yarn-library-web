@@ -1,1 +1,109 @@
-<p>profile</p>
+<nz-card class="card">
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <h5 nz-typography>Mi perfil</h5>
+    </div>
+  </div>
+  <div nz-row class="card__row">
+    <div nz-col nzSpan="24">
+      <div class="card_user">
+        <div class="card_user_img">
+          <nz-avatar [nzSize]="45" [nzSrc]=""></nz-avatar>
+        </div>
+        <div class="card_user__info">
+          <div class="card_user__title">Javiera Jara Salas</div>
+          <div class="card_user__description">{{ 'javivimi14@gmail.com' }}</div>
+        </div>
+        <div>
+          <custom-default-button label="Cambiar contraseña"></custom-default-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row class="card__row">
+    <div nz-col nzSpan="24">
+      <div nz-row>
+        <div
+          style="width: 100%"
+          nzSpan="24"
+          nz-flex
+          nzJustify="space-between"
+          nzAlign="center"
+        >
+          <h5 nz-typography>Información personal</h5>
+          <custom-default-button label="Editar"></custom-default-button>
+          <button nz-button nzSize="large" nzShape="round" nzType="default">
+            Editar
+          </button>
+        </div>
+      </div>
+      <div nz-row class="item">
+        <div nz-col [nzSm]="12" [nzXs]="24">
+          <p nz-typography class="item__title">Nombre de usuario</p>
+          <p nz-typography class="item__result">{{ 'javivimi14@gmail.com' }}</p>
+        </div>
+        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+          <p nz-typography class="item__title">Correo electrónico</p>
+          <p nz-typography class="item__result">{{ 'javivimi14@gmail.com' }}</p>
+        </div>
+      </div>
+      <div nz-row class="item">
+        <div nz-col [nzSm]="12" [nzXs]="24">
+          <p nz-typography class="item__title">Nombre</p>
+          <p nz-typography class="item__result">Javiera Jara Salas</p>
+        </div>
+        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+          <p nz-typography class="item__title">
+            Télefono
+            <custom-text-button
+              label="• Validar"
+              fontSize="12px"
+            ></custom-text-button>
+          </p>
+          <p nz-typography class="item__result">+56 954739328</p>
+        </div>
+      </div>
+      <div nz-row class="item">
+        <div nz-col [nzSm]="12" [nzXs]="24">
+          <p nz-typography class="item__title">Fecha de Nacimiento</p>
+          <p nz-typography class="item__result">24/07/1997</p>
+        </div>
+        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+          <p nz-typography class="item__title">Género</p>
+          <p nz-typography class="item__result">Femenino</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row class="card__row">
+    <div nz-col nzSpan="24">
+      <div nz-row>
+        <div
+          style="width: 100%"
+          nzSpan="24"
+          nz-flex
+          nzJustify="flex-start"
+          nzAlign="flex-start"
+        >
+          <h5 nz-typography>Dirección</h5>
+        </div>
+      </div>
+      <div nz-row class="item">
+        <div nz-col [nzSm]="12" [nzXs]="24">
+          <p nz-typography class="item__title">Pais</p>
+          <p nz-typography class="item__result">Chile</p>
+        </div>
+        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+          <p nz-typography class="item__title">Región/Estado</p>
+          <p nz-typography class="item__result">La Araucanía</p>
+        </div>
+      </div>
+      <div nz-row class="item">
+        <div nz-col [nzSm]="12" [nzXs]="24">
+          <p nz-typography class="item__title">Ciudad</p>
+          <p nz-typography class="item__result">Temuco</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nz-card>

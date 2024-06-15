@@ -1,0 +1,19 @@
+@import '../../../styles/scss/variables.scss';
+button {
+  color: $primary-color;
+  border-color: $primary-color;
+  font-weight: bold;
+  &:hover {
+    background-color:  $primary-color;
+    border-color: $primary-color;
+    color: $font-light;
+    box-shadow: 0 0 0 2px $shadow-color;
+  }
+}
+// ::ng-deep .ant-btn-link:active {
+//   color: $primary-color;
+// }
+// ::ng-deep .ant-btn-link:focus,
+// .ant-btn-link:hover {
+//   color: $background-dark;
+// }

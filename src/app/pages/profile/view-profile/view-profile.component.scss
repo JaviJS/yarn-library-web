@@ -1,0 +1,55 @@
+@import '../../../styles/scss/variables.scss';
+.card {
+  border-radius: 20px;
+  margin: 30px;
+  &__row {
+    border: 1px solid $border-color;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0px 0px 0px;
+  }
+  &__colXs{
+    margin: 20px 0px 0px 0px;
+  }
+  &__colSm{
+    margin: 0px;
+  }
+}
+.card_user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  &__title {
+    color: $font-color;
+    font-weight: normal;
+    margin-bottom: 0px;
+    word-break: break-all;
+    text-wrap: balance;
+  }
+  &__description {
+    color: $font-subtitle-color;
+    font-weight: normal;
+    word-break: break-all;
+    text-wrap: balance;
+  }
+}
+
+.item {
+  margin: 20px 0px;
+  p{
+    margin: 0px;
+  }
+  &__title{
+    color: $font-subtitle-color;
+    font-size: 12px;
+  }
+  &__result{
+    color: $font-color;
+  }
+}

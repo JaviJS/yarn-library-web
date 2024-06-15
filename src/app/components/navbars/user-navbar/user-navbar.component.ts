@@ -14,7 +14,7 @@ import {MenuPopoverComponent} from '../../popovers/menu-popover/menu-popover.com
 export class UserNavbarComponent {
   @Output() isCollapsedEmit = new EventEmitter<boolean>();
   hiddenCard = false;
-  isCollapsed = false;
+  isCollapsed = true;
   user = {
     name: 'Javiera Jara Salas',
     email: 'javivimi14@gmail.com',
