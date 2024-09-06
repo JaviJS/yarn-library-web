@@ -15,7 +15,38 @@
           <div class="card_user__description">{{ 'javivimi14@gmail.com' }}</div>
         </div>
         <div>
-          <custom-default-button label="Cambiar contraseña"></custom-default-button>
+          <custom-default-rounded-button
+            label="Cambiar contraseña"
+            (click)="showChangePasswordForm(tplTitle, tplContent, tplFooter)"
+          ></custom-default-rounded-button>
+          <ng-template #tplTitle>
+            <span>Cambiar contraseña</span>
+          </ng-template>
+          <ng-template #tplContent>
+            
+          </ng-template>
+          <ng-template #tplFooter let-ref="modalRef">
+            <custom-default-normal-button label="Cancelar" (click)="ref.destroy()"></custom-default-normal-button>
+            <custom-normal-button
+              (click)="saveNewPassword(ref)"
+              label="Guardar"
+            ></custom-normal-button>
+          </ng-template>
+
+          <!-- <nz-modal
+            [nzMaskClosable]="false"
+            [(nzVisible)]="isVisibleFormNewPassword"
+            nzOkText="Guardar"
+            nzCancelText="Cancelar"
+            (nzOnCancel)="cancelNewPassword()"
+            (nzOnOk)="saveNewPassword()"
+          >
+            <ng-container *nzModalContent>
+              <p>Content one</p>
+              <p>Content two</p>
+              <p>Content three</p>
+            </ng-container>
+          </nz-modal> -->
         </div>
       </div>
     </div>
@@ -31,7 +62,7 @@
           nzAlign="center"
         >
           <h5 nz-typography>Información personal</h5>
-          <custom-default-button label="Editar"></custom-default-button>
+          <custom-default-rounded-button label="Editar"></custom-default-rounded-button>
         </div>
       </div>
       <div nz-row class="item">
@@ -39,7 +70,12 @@
           <p nz-typography class="item__title">Nombre de usuario</p>
           <p nz-typography class="item__result">{{ 'javivimi14@gmail.com' }}</p>
         </div>
-        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+        <div
+          nz-col
+          [nzSm]="12"
+          [nzXs]="24"
+          [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'"
+        >
           <p nz-typography class="item__title">Correo electrónico</p>
           <p nz-typography class="item__result">{{ 'javivimi14@gmail.com' }}</p>
         </div>
@@ -49,7 +85,12 @@
           <p nz-typography class="item__title">Nombre</p>
           <p nz-typography class="item__result">Javiera Jara Salas</p>
         </div>
-        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+        <div
+          nz-col
+          [nzSm]="12"
+          [nzXs]="24"
+          [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'"
+        >
           <p nz-typography class="item__title">
             Télefono
             <custom-text-button
@@ -65,7 +106,12 @@
           <p nz-typography class="item__title">Fecha de Nacimiento</p>
           <p nz-typography class="item__result">24/07/1997</p>
         </div>
-        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+        <div
+          nz-col
+          [nzSm]="12"
+          [nzXs]="24"
+          [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'"
+        >
           <p nz-typography class="item__title">Género</p>
           <p nz-typography class="item__result">Femenino</p>
         </div>
@@ -90,7 +136,12 @@
           <p nz-typography class="item__title">Pais</p>
           <p nz-typography class="item__result">Chile</p>
         </div>
-        <div nz-col [nzSm]="12" [nzXs]="24" [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'">
+        <div
+          nz-col
+          [nzSm]="12"
+          [nzXs]="24"
+          [ngClass]="isSmallScreen ? 'card__colXs' : 'card__colSm'"
+        >
           <p nz-typography class="item__title">Región/Estado</p>
           <p nz-typography class="item__result">La Araucanía</p>
         </div>

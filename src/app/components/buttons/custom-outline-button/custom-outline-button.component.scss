@@ -1,0 +1,25 @@
+@import '../../../styles/scss/variables.scss';
+.button {
+  margin-top: 20px;
+  color: $primary-color;
+  background-color: $font-light;
+  border-color: $primary-color;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  &:hover {
+    box-shadow: 0 0 0 1px $shadow-dark-color;
+  }
+}
+.big-btn{
+  width: 100%;
+}
+.medium-btn{
+  width: 300px;
+}
+@media only screen and (max-width: 720px) {
+  .button {
+    width: 100% !important;
+  }
+}

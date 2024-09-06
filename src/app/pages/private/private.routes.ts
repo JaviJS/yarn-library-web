@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { PrivateComponent } from './private.component';
-import { AdminPageComponent } from '../../pages/admin/admin-page.component';
 
 export const privateRoutes: Routes = [
   {
@@ -12,6 +11,13 @@ export const privateRoutes: Routes = [
         loadChildren: () =>
           import('../../pages/admin/admin-page.routes').then(
             m => m.adminRoutes
+          ),
+      },
+      {
+        path: 'tejedor',
+        loadChildren: () =>
+          import('../../pages/weaver/weaver-page.routes').then(
+            m => m.weaverRoutes
           ),
       },
       {

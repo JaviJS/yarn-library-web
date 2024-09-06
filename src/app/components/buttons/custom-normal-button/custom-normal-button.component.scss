@@ -1,0 +1,14 @@
+@import '../../../styles/scss/variables.scss';
+.button {
+  color: $font-light;
+  background-color: $primary-color;
+  border-color: transparent;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  &:hover {
+    background-color: $primary-color;
+    box-shadow: 0 0 0 2px $shadow-color;
+    color: $font-light;
+  }
+}

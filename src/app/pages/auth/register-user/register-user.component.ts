@@ -35,7 +35,7 @@ import {
     PasswordFormInputComponent,
     ValidateSelectComponent,
     PhoneInputComponent,
-    CustomButtonComponent,
+    CustomButtonComponent
   ],
 })
 export class RegisterUserComponent {

@@ -1,0 +1,17 @@
+@import '../../../styles/scss/variables.scss';
+button {
+  color: $font-color;
+  border-color: $font-color;
+  font-weight: bold;
+  border-radius: 10px;
+  &:hover,
+  &:active {
+    border-color: $font-color;
+    color: $font-color;
+    box-shadow: 0 0 0 2px $shadow-dark-color;
+  }
+  &:focus {
+    color: $font-color;
+    border-color: $font-color;
+  }
+}
